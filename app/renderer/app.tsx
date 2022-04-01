@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Router from '@src/router';
+import store from '@src/store';
+import { Provider } from 'react-redux';
+
 import './assets/styles/normalize.less';
 
 function App() {
-  return <Router />;
+  return (
+    <Provider store={store}>
+      <Router />
+    </Provider>
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
