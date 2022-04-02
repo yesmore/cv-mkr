@@ -12,23 +12,27 @@ import { onAddToolbar, onDeleteToolbar } from './utils';
 function ResumeToolbar() {
   const dispatch = useDispatch();
   const height = document.body.clientHeight;
+
   const [addToolbarList, setAddToolbarList] = useState<TSResume.SliderItem[]>([]);
   const [unAddToolbarList, setUnAddToolbarList] = useState<TSResume.SliderItem[]>([]);
 
+  // 初始化工具条列表（require: true/false）
   useEffect(() => {
     if (RESUME_TOOLBAR_LIST.length > 0) {
-      let _addToolbarList: TSResume.SliderItem[] = [];
-      let _unAddToolbarList: TSResume.SliderItem[] = [];
+      let _addToolbarList: TSResume.SliderItem[] = []; // 已添加
+      let _unAddToolbarList: TSResume.SliderItem[] = []; // 未添加
       RESUME_TOOLBAR_LIST.forEach((s: TSResume.SliderItem) => {
-        if (s.require) _addToolbarList.push(s);
-        if (!s.require) _unAddToolbarList.push(s);
+        if (s.require) _addToolbarList.push(s); // 必填
+        if (!s.require) _unAddToolbarList.push(s); // 非必填
       });
+      // 设置
       setAddToolbarList(_addToolbarList);
       setUnAddToolbarList(_unAddToolbarList);
       changeResumeToolbarKeys(_addToolbarList.map((s) => s.key));
     }
   }, []);
 
+  // 工具条改变: 触发action更新state
   const changeResumeToolbarKeys = (moduleKeys: string[]) => {
     if (moduleKeys.length > 0) {
       dispatch({
@@ -62,11 +66,12 @@ function ResumeToolbar() {
   return (
     <div styleName="slider">
       <TaskScrollBox maxHeight={height - 180}>
+        {/* 已填写 */}
         {!!addToolbarList.length && (
           <div styleName="module">
             <div styleName="title">
               <span styleName="line" />
-              已添加模块
+              已添加
             </div>
             <div styleName="content">
               {addToolbarList.map((addSlider: TSResume.SliderItem) => {
@@ -106,11 +111,12 @@ function ResumeToolbar() {
             </div>
           </div>
         )}
+        {/* 未填写 */}
         {!!unAddToolbarList.length && (
           <div styleName="module">
             <div styleName="title un-first">
               <span styleName="line" />
-              未添加模块
+              未添加
             </div>
             <div styleName="content">
               {unAddToolbarList.map((unAddSlider: TSResume.SliderItem) => {

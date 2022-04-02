@@ -1,6 +1,6 @@
 import ROUTER, { ROUTER_KEY, ROUTER_ENTRY, REPO } from './router';
 import RESUME_TOOLBAR_LIST, { RESUME_TOOLBAR_MAPS } from './resume';
-import RecommendSkill from './skill';
+import RecommendSkill, { IRecommendSkill } from './skill';
 
 export {
   ROUTER,
@@ -10,4 +10,5 @@ export {
   RESUME_TOOLBAR_LIST,
   RESUME_TOOLBAR_MAPS,
   RecommendSkill,
+  IRecommendSkill,
 };
