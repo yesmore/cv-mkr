@@ -8,6 +8,7 @@ interface IProps {
   currentItem?: AdapterExperienceType;
   onChangeCurrentItem?: (newItem: AdapterExperienceType) => void;
 }
+
 function Form({ isDisable, currentItem, onChangeCurrentItem }: IProps) {
   const onChangeValue = (key: string, value: string) => {
     let newItem = { ...currentItem, [key]: value };
@@ -18,7 +19,7 @@ function Form({ isDisable, currentItem, onChangeCurrentItem }: IProps) {
     <div styleName="wrapper">
       <div styleName="flex">
         <div styleName="left">
-          <span styleName="require">*</span>部门 ：
+          <span styleName="require">*</span>部门 :
         </div>
         <div styleName="right">
           <TaskInput
@@ -32,7 +33,7 @@ function Form({ isDisable, currentItem, onChangeCurrentItem }: IProps) {
       </div>
       <div styleName="flex">
         <div styleName="left">
-          <span styleName="require">*</span>职 位 ：
+          <span styleName="require">*</span>职 位 :
         </div>
         <div styleName="right">
           <TaskInput
@@ -46,7 +47,7 @@ function Form({ isDisable, currentItem, onChangeCurrentItem }: IProps) {
       </div>
       <div styleName="flex">
         <div styleName="left">
-          <span styleName="require">*</span>时 间 ：
+          <span styleName="require">*</span>时 间 :
         </div>
         <div styleName="right">
           <TaskInput
@@ -70,7 +71,7 @@ function Form({ isDisable, currentItem, onChangeCurrentItem }: IProps) {
       </div>
       <div styleName="flex">
         <div styleName="left">
-          <span styleName="require">*</span>内 容 ：
+          <span styleName="require">*</span>内 容 :
         </div>
         <div styleName="right">
           <TaskInput

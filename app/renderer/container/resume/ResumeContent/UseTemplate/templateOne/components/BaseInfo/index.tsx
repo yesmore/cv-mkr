@@ -22,6 +22,7 @@ function BaseInfo() {
           </li>
         )}
         {base?.hometown && <li>籍贯：{base?.hometown}</li>}
+        {base?.hobby && <li>爱好：{base?.hobby}</li>}
       </ul>
     </div>
   );

@@ -3,9 +3,9 @@
  * @author {pengdaokuan}
  */
 import React, { useRef } from 'react';
-import './index.less';
 import classnames from 'classnames';
 import FileEvent from '../fileEvent';
+import './index.less';
 
 function Upload({
   style,

@@ -24,27 +24,37 @@ function Project() {
                 <div styleName="left">
                   {(experience?.beginTime || experience?.endTime) && (
                     <p>
-                      {experience?.beginTime && !experience?.endTime && <span>{experience?.beginTime}</span>}
-                      {!experience?.beginTime && experience?.endTime && <span>{experience?.endTime}</span>}
+                      {experience?.beginTime && !experience?.endTime && (
+                        <span>{experience?.beginTime}</span>
+                      )}
+                      {!experience?.beginTime && experience?.endTime && (
+                        <span>{experience?.endTime}</span>
+                      )}
                       {experience?.beginTime && experience?.endTime && (
                         <span>
-                          {experience?.endTime} - {experience?.endTime}
+                          {experience?.beginTime} - {experience?.endTime}
                         </span>
                       )}
                     </p>
                   )}
                 </div>
+
                 <div styleName="right">
                   <p>
-                    {experience?.projectName && !experience?.post && <span>{experience?.projectName}</span>}
-                    {!experience?.projectName && experience?.post && <span>{experience?.post}</span>}
+                    {experience?.projectName && !experience?.post && (
+                      <span>{experience?.projectName}</span>
+                    )}
+                    {!experience?.projectName && experience?.post && (
+                      <span>{experience?.post}</span>
+                    )}
                     {experience?.projectName && experience?.post && (
                       <span>
-                        {experience?.post} - {experience?.post}
+                        {experience?.projectName} - {experience?.post}
                       </span>
                     )}
                   </p>
                 </div>
+
                 <div styleName="text">
                   <ul styleName="item-box">
                     {experience?.content &&

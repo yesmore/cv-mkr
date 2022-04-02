@@ -39,6 +39,7 @@ const ImageUpload: React.FC<IProps> = ({
           />
         </div>
       )}
+
       <div className="my_input_image_upload_box">
         <img src={icon} className="my_input_image_upload__icon" />
         <p>{text}</p>

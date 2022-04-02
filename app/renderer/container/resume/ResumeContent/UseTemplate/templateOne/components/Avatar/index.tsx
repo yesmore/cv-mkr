@@ -14,6 +14,7 @@ function Avatar() {
   const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
   const updateResumeHook = useUpdateResumeHook();
 
+  // 更新用户的简历头像
   const onUpdateUserAvatar = (avatarUrl: string) => {
     updateResumeHook<string>('base/avatar', avatarUrl);
   };
@@ -30,6 +31,8 @@ function Avatar() {
           }}
         />
       )}
+
+      {/* 展示头像 */}
       {base?.avatar && (
         <div styleName="avatar">
           <img src={base?.avatar} />

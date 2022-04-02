@@ -15,6 +15,7 @@ function ResumeAction() {
   const [showModal, setShowModal] = useState(false);
   const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
   const work: TSResume.Work = useSelector((state: any) => state.resumeModel.work);
+  const contact: TSResume.Contact = useSelector((state: any) => state.resumeModel.contact);
 
   // 返回首页
   const onBack = () => history.push(ROUTER.root);
@@ -31,7 +32,7 @@ function ResumeAction() {
       {showModal && (
         <TaskModal.Confirm
           title="确定要打印简历吗？"
-          description="请确保信息的正确，目前仅支持单页打印哦～"
+          description="请确保信息的正确，目前仅支持单页打印"
           config={{
             cancelBtn: {
               isShow: true,
@@ -40,7 +41,7 @@ function ResumeAction() {
             submitBtn: {
               isShow: true,
               callback: () => {
-                toPrintPdf(`${base?.username}+${base?.school}+${work?.job}`);
+                toPrintPdf(`${base?.username}-${contact?.phone}-${work?.job}`);
                 setShowModal(false);
               },
             },

@@ -3,11 +3,11 @@
  */
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import './index.less';
 import TaskScrollBox from '@src/components/TaskScrollBox';
 import { RESUME_TOOLBAR_LIST } from '@common/constants';
 import Messager, { MESSAGE_EVENT_NAME_MAPS } from '@common/messager';
 import { onAddToolbar, onDeleteToolbar } from './utils';
+import './index.less';
 
 function ResumeToolbar() {
   const dispatch = useDispatch();

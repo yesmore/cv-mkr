@@ -16,6 +16,7 @@ function Personal({ onClose }: IProps) {
   const updateResumeHook = useUpdateResumeHook();
   const hobby: string = useSelector((state: any) => state.resumeModel.hobby);
   const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
+
   return (
     <TaskModal.Dialog
       title="个人信息"
@@ -34,6 +35,7 @@ function Personal({ onClose }: IProps) {
           <div styleName="right">
             <TaskInput
               onChange={(e) => {
+                // 修改个人基本信息中的姓名字段数据
                 updateResumeHook('base/username', e.target?.value || '');
               }}
               value={base?.username || ''}
@@ -42,6 +44,7 @@ function Personal({ onClose }: IProps) {
             />
           </div>
         </div>
+
         <div styleName="flex">
           <div styleName="left">
             <span styleName="require">*</span>籍 贯 ：
@@ -57,6 +60,7 @@ function Personal({ onClose }: IProps) {
             />
           </div>
         </div>
+
         <div styleName="flex">
           <div styleName="left">
             <span styleName="require" style={{ opacity: 0 }}>
@@ -64,6 +68,7 @@ function Personal({ onClose }: IProps) {
             </span>
             爱 好 ：
           </div>
+
           <div styleName="right">
             <TaskInput
               type="textarea"

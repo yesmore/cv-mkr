@@ -62,12 +62,14 @@ function WrapperExperience({ children, dataList, updateDataList }: IProps) {
       deleteIndex: index,
     });
   };
+  // 4.1 删除弹窗的取消按钮回调
   const onDeleteCancel = useCallback(() => {
     setDeleteModal({
       show: false,
       deleteIndex: -1,
     });
   }, [currentIndex, deleteModal]);
+  // 4.2 删除弹窗的确定按钮回调
   const onDeleteOk = useCallback(() => {
     const newList = onDeleteExperience(deleteModal.deleteIndex, experienceList);
     if (newList.length > 0) setCurrentIndex(0);
@@ -86,8 +88,9 @@ function WrapperExperience({ children, dataList, updateDataList }: IProps) {
       // 5.1 当前正在编辑状态
       if (editModal.status) {
         onToggleEditModal({
-          showByCancel: true,
+          showByCancel: true, // 当取消编辑内容，弹窗显示
           onAfterFn: () => {
+            // 确定取消，则新增条目
             setCurrentIndex(index);
           },
         });
@@ -100,10 +103,12 @@ function WrapperExperience({ children, dataList, updateDataList }: IProps) {
 
   // 6. 添加条目
   const onAddItem = () => {
+    // 1. 如果当前属于编辑态
     if (editModal.status) {
       onToggleEditModal({
-        showByCancel: true,
+        showByCancel: true, // 当取消编辑内容，弹窗显示
         onAfterFn: () => {
+          // 确定取消，则新增条目
           const newList = onAddExperience(experienceList);
           if (newList.length > 0) {
             // 定位激活刚添加的这条数据
@@ -114,6 +119,7 @@ function WrapperExperience({ children, dataList, updateDataList }: IProps) {
         },
       });
     } else {
+      // 2. 不属于编辑态
       const newList = onAddExperience(experienceList);
       if (newList.length > 0) {
         // 定位激活刚添加的这条数据
@@ -137,6 +143,7 @@ function WrapperExperience({ children, dataList, updateDataList }: IProps) {
     [editModal]
   );
 
+  // 当点击“保存”按钮时触发
   const onSaveEditValue = useCallback(() => {
     let newList = [...experienceList];
     let item = editModal?.tempSaveItem ? { ...editModal?.tempSaveItem } : { ...currentItem };
@@ -148,19 +155,22 @@ function WrapperExperience({ children, dataList, updateDataList }: IProps) {
     });
   }, [editModal?.tempSaveItem, currentIndex, onToggleEditModal]);
 
+  // 定义 Form 组件中 修改当前条目数据源的方法
   const onChangeCurrentItem = useCallback(
     (newItem: AdapterExperienceType) => {
       onToggleEditModal({
         tempSaveItem: { ...newItem },
       });
-      // 这里是为了保证Form表单显示的数据实时性和一致性
+      // 是为了保证Form表单显示的数据实时性和一致性
       setCurrentItem(newItem);
     },
     [children, onToggleEditModal]
   );
+
   const newForm = useMemo(() => {
     return React.Children.map(children, (child) => {
       if (React.isValidElement(child)) {
+        // 给子组件注入两个属性：当前条目与修改当前条目的方法
         return React.cloneElement(child, {
           isDisable: !editModal?.status,
           currentItem,
@@ -182,6 +192,7 @@ function WrapperExperience({ children, dataList, updateDataList }: IProps) {
           onDelete={onDeleteItem}
         />
       </div>
+
       <div styleName="right-box">
         {experienceList.length > 0 && (
           <Right>
@@ -198,6 +209,7 @@ function WrapperExperience({ children, dataList, updateDataList }: IProps) {
           </Right>
         )}
       </div>
+
       {deleteModal.show && (
         <TaskModal.Confirm
           title="确定删除条目吗？"
@@ -214,6 +226,7 @@ function WrapperExperience({ children, dataList, updateDataList }: IProps) {
           }}
         />
       )}
+
       {editModal.showByCancel && (
         <TaskModal.Confirm
           title="你确定放弃编辑的笔记内容？"
