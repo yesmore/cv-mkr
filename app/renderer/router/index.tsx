@@ -1,22 +1,29 @@
-import React from 'react';
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
+import { HashRouter, Redirect } from 'react-router-dom';
+import { useThemeActionHooks, useReadDirAssetsTemplateHooks } from '@src/hooks/';
 import Root from '@src/container/root';
 import Resume from '@src/container/resume';
+import TemplateList from '@src/container/templateList';
 import { ROUTER } from '@common/constants';
 
 function Router() {
+  const readDirAssetsTemplateHooks = useReadDirAssetsTemplateHooks();
+  const initThemeConfig = useThemeActionHooks.useInitThemeConfig();
+
+  useEffect(() => {
+    initThemeConfig();
+    readDirAssetsTemplateHooks();
+  }, []);
+
   return (
     <HashRouter>
-      <Switch>
-        <Route path={ROUTER.root} exact>
-          <Root />
-        </Route>
-        <Route path={ROUTER.resume} exact>
-          <Resume />
-        </Route>
-      </Switch>
-      {/* 重定向到首页 */}
-      <Redirect to={ROUTER.root} />
+      <CacheSwitch>
+        <CacheRoute path={ROUTER.root} exact component={Root} />
+        <CacheRoute path={ROUTER.resume} exact component={Resume} />
+        <CacheRoute path={ROUTER.templateList} exact component={TemplateList} />
+        <Redirect from={ROUTER.root} exact to={ROUTER.root} />
+      </CacheSwitch>
     </HashRouter>
   );
 }

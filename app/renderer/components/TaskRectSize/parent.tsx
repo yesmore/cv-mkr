@@ -1,0 +1,74 @@
+import React from 'react';
+import LeftComponent from './left';
+import RightComponent from './right';
+
+interface IProps {
+  /**
+   * @description 自定义样式
+   */
+  style?: React.CSSProperties;
+  children?: any;
+}
+
+class ParentComponent extends React.Component<IProps> {
+  // 定义类组件的静态属性
+  static Left = LeftComponent;
+  static Right = RightComponent;
+
+  defaultLeftBoxRef = React.createRef();
+
+  getParentStyle() {
+    return {
+      display: 'flex',
+      justifyContent: 'center',
+    };
+  }
+
+  getLeftStyle() {
+    return {
+      position: 'absolute',
+      left: 16,
+    };
+  }
+
+  getRightStyle() {
+    return {};
+  }
+
+  // 获取左侧容器
+  get leftBoxRef() {
+    const { children } = this.props;
+    const leftElement = children[0];
+    return leftElement.props.boxRef || this.defaultLeftBoxRef;
+  }
+
+  getChild() {
+    const { children } = this.props;
+    const leftElement = children[0];
+    const rightElement = children[1];
+
+    return [
+      React.cloneElement(leftElement, {
+        style: { ...this.getLeftStyle(), ...(leftElement.props.style || {}) },
+        boxRef: this.leftBoxRef, // 给左侧组件传递
+        key: 'componentLeft',
+      }),
+      React.cloneElement(rightElement, {
+        style: { ...this.getRightStyle(), ...(rightElement.props.style || {}) },
+        key: 'componentRight',
+      }),
+    ];
+  }
+
+  render() {
+    const { style } = this.props;
+    let finialStyle = this.getParentStyle();
+    return (
+      <div className="parent-box" style={{ ...finialStyle, ...style }}>
+        {this.getChild()}
+      </div>
+    );
+  }
+}
+
+export default ParentComponent;

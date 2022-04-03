@@ -1,4 +1,4 @@
-import { isHttpOrHttpsUrl } from './router';
+import { isHttpOrHttpsUrl, compilePath } from './router';
 import fileAction from './file';
 import { getAppPath } from './appPath';
 import { createUID } from './createUID';
@@ -10,6 +10,7 @@ import { textToHref } from './textToHref.tsx';
 
 export {
   isHttpOrHttpsUrl,
+  compilePath,
   fileAction,
   getAppPath,
   createUID,
