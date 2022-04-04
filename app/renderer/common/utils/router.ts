@@ -1,4 +1,4 @@
-import { compile } from 'path-to-regexp';
+import { compile } from 'path-to-regexp/dist/index.js';
 
 /**
  * @desc 判断是否属于外部连接

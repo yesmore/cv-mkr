@@ -36,8 +36,7 @@
       ]
     },
     "dmg": {
-      "contents": [
-        {
+      "contents": [{
           "x": 130,
           "y": 220
         },
@@ -59,6 +58,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "html2canvas": "^1.0.0-rc.7",
+    "electron": "^11.1.1",
     "jspdf": "^2.3.1",
     "path-to-regexp": "^6.2.0",
     "react": "^17.0.2",
@@ -90,7 +90,7 @@
     "classnames": "^2.3.1",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^3.0.0",
-    "electron": "^11.1.1",
+    "react-router-cache-route": "^1.11.1",
     "electron-builder": "22.10.5",
     "eslint": "^7.26.0",
     "eslint-config-alloy": "^4.1.0",

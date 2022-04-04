@@ -15,14 +15,18 @@ function Root() {
   const [currentTheme] = useThemeActionHooks.useGetCurrentTheme();
   const selectTemplate = useSelector((state: any) => state.templateModel.selectTemplate);
 
-  const onRouterToLink = (router: TSRouter.Item) => {
-    history.push(
-      compilePath(ROUTER_KEY.resume, {
-        fromPath: ROUTER_KEY.root,
-        templateId: selectTemplate?.templateId,
-        templateIndex: selectTemplate?.templateIndex,
-      })
-    );
+  const onRouterToLink = (router: TSRouter.Item = ROUTER_ENTRY[0]) => {
+    if (router.key !== ROUTER_KEY.resume) {
+      history.push(compilePath(router.url));
+    } else {
+      history.push(
+        compilePath(router.url, {
+          fromPath: ROUTER_KEY.root,
+          templateId: selectTemplate?.templateId,
+          templateIndex: selectTemplate?.templateIndex,
+        })
+      );
+    }
   };
 
   const onOpenSRC = () => {

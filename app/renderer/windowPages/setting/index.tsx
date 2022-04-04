@@ -42,6 +42,15 @@ function Setting() {
       }
     });
   };
+
+  // 监听 关闭/最小化窗口 事件
+  const onHideWindow = () => {
+    ipcRenderer.send('Electron:SettingWindow-hide-event');
+  };
+  const onMinWindow = () => {
+    ipcRenderer.send('Electron:SettingWindow-min-event');
+  };
+
   return (
     <div styleName="container">
       <p styleName="label">修改简历数据储存路径</p>

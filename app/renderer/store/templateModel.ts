@@ -23,6 +23,7 @@ const templateModel: TSRcReduxModel.Props<TStore> = {
       templateId: '',
       templateName: '',
       templateCover: '',
+      templateIndex: -1,
     },
   },
 };

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 import { HashRouter, Redirect } from 'react-router-dom';
-import { useThemeActionHooks, useReadDirAssetsTemplateHooks } from '@src/hooks/';
+import { useThemeActionHooks, useReadDirAssetsTemplateHooks } from '@src/hooks';
 import Root from '@src/container/root';
 import Resume from '@src/container/resume';
 import TemplateList from '@src/container/templateList';

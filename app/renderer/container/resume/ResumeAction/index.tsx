@@ -2,9 +2,10 @@
  * @description 制作简历-操作区
  */
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { useReadGlobalConfigFile, useUpdateGlobalConfigFile } from '@src/hooks';
+import { useClickAway } from '@src/hooks';
 import TaskButton from '@src/components/TaskButton';
 import TaskModal from '@src/components/TaskModal';
 import {
@@ -15,33 +16,47 @@ import {
   intToDateString,
   getAppPath,
 } from '@common/utils';
-import { ROUTER } from '@common/constants';
+import { ROUTER, ROUTER_KEY } from '@common/constants';
 import './index.less';
 
 function ResumeAction() {
   const history = useHistory();
-  const [showModal, setShowModal] = useState(false);
+  const routerParams = useParams<{ fromPath: string; templateId: string; templateIndex: string }>();
+
   const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
   const work: TSResume.Work = useSelector((state: any) => state.resumeModel.work);
   const contact: TSResume.Contact = useSelector((state: any) => state.resumeModel.contact);
   const resume = useSelector((state: any) => state.resumeModel);
+
   const readAppConfigThemeFile = useReadGlobalConfigFile();
   const updateGlobalConfigFile = useUpdateGlobalConfigFile();
 
+  const { ref, componentVisible, setComponentVisible } = useClickAway(false);
+
   // 返回首页
-  const onBack = () => history.push(compilePath(ROUTER.root));
+  const onBack = () => {
+    history.push(compilePath(ROUTER.root));
+    // console.log(routerParams?.fromPath, ROUTER_KEY.root);
+    // if (routerParams?.fromPath === ROUTER_KEY.root) {
+    //   history.push(compilePath(ROUTER.root));
+    // } else if (routerParams?.fromPath === ROUTER_KEY.templateList) {
+    //   history.push(compilePath(ROUTER.templateList));
+    // } else {
+    //   console.log('here');
+    // }
+  };
 
   const onChoseTpl = () => history.push(compilePath('/templateList'));
 
   // 导出PDF
   const exportPdf = () => {
     toPrintPdf(`${base?.username}-${contact?.phone}-${work?.job}`);
-    setShowModal(false);
+    setComponentVisible(false);
     readAppConfigThemeFile().then((value: { [key: string]: any }) => {
       if (value?.resumeSavePath) {
         saveResumeJson(value?.resumeSavePath);
       } else {
-        // 👇 2.2 不存在默认路径，则设置默认路径并更新文件内容
+        // 不存在默认路径，则设置默认路径并更新文件内容
         getAppPath().then((appPath: string) => {
           updateGlobalConfigFile('resumeSavePath', `${appPath}cache`);
           saveResumeJson(`${appPath}cache`);
@@ -79,18 +94,18 @@ function ResumeAction() {
       <TaskButton size="middle" styleName="back" onClick={onChoseTpl}>
         选择模板
       </TaskButton>
-      <TaskButton size="middle" className="export-btn" onClick={() => setShowModal(true)}>
+      <TaskButton size="middle" className="export-btn" onClick={() => setComponentVisible(true)}>
         导出PDF
       </TaskButton>
 
-      {showModal && (
+      {componentVisible && (
         <TaskModal.Confirm
           title="确定要打印简历吗？"
           description="请确保信息的正确，目前仅支持单页打印"
           config={{
             cancelBtn: {
               isShow: true,
-              callback: () => setShowModal(false),
+              callback: () => setComponentVisible(false),
             },
             submitBtn: {
               isShow: true,

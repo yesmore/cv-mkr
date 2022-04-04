@@ -4,10 +4,12 @@ import {
   useReadGlobalConfigFile,
   useUpdateGlobalConfigFile,
 } from '@src/hooks/useGlobalConfigActionHooks';
+import useClickAway from '@src/hooks/useClickAway';
 
 export {
   useReadDirAssetsTemplateHooks,
   useThemeActionHooks,
   useReadGlobalConfigFile,
   useUpdateGlobalConfigFile,
+  useClickAway,
 };

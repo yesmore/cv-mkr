@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import * as UseTemplateList from './UseTemplate';
 import TaskScrollBox from '@src/components/TaskScrollBox';
 import Messager, { MESSAGE_EVENT_NAME_MAPS } from '@common/messager';
@@ -17,14 +18,20 @@ import SchoolExperience from './UseForm/SchoolExperience';
 import WorkExperience from './UseForm/WorkExperience';
 
 function ResumeContent() {
+  const routerParams = useParams<{ fromPath: string; templateId: string; templateIndex: string }>();
+
   const HEADER_ACTION_HEIGHT = 92;
-  const height = document.body.clientHeight;
+  const [height, setHeight] = useState(0);
 
   const [formName, setFormName] = useState('');
   const [showFormModal, setShowFormModal] = useState(false);
 
   useEffect(() => {
-    // 初始化监听事件
+    if (document.body && document.body.clientHeight > 0) setHeight(document.body.clientHeight);
+  }, [document.body]);
+
+  // 监听 click 事件，在组件卸载时移除
+  useEffect(() => {
     document.addEventListener(MESSAGE_EVENT_NAME_MAPS.OPEN_FORM_MODAL, onReceive);
     return () => {
       document.removeEventListener(MESSAGE_EVENT_NAME_MAPS.OPEN_FORM_MODAL, onReceive);
@@ -50,7 +57,9 @@ function ResumeContent() {
 
   return (
     <TaskScrollBox maxHeight={height - HEADER_ACTION_HEIGHT}>
-      <UseTemplateList.TemplateOne />
+      {routerParams?.templateId && Number(routerParams?.templateIndex) === 0 && (
+        <UseTemplateList.TemplateOne />
+      )}
       {showFormModal && (
         <>
           {formName === RESUME_TOOLBAR_MAPS.certificate && <CertificateForm onClose={onClose} />}

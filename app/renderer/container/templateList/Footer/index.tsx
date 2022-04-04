@@ -9,6 +9,7 @@ import './index.less';
 function Footer() {
   const history = useHistory();
   const selectTemplate = useSelector((state: any) => state.templateModel.selectTemplate);
+  // console.log('selectTemplate', selectTemplate);
 
   const onMadeResume = () => {
     history.push(
@@ -19,6 +20,7 @@ function Footer() {
       })
     );
   };
+
   return (
     <div styleName="footer">
       <TaskButton size="middle" className="use-btn" onClick={onMadeResume}>
