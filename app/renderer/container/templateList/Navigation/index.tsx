@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TaskScrollBox from '@src/components/TaskScrollBox';
 import TaskButton from '@src/components/TaskButton';
-import UseIcon from '@src/assets/icon/use.png';
+import UseIcon from '@assets/icon/use.png';
 import './index.less';
 
 function Navigation() {
@@ -46,7 +46,7 @@ function Navigation() {
                       className="view-btn"
                       onClick={() => onSelect(template)}
                     >
-                      预览模版
+                      预览
                     </TaskButton>
                   )}
                 </div>

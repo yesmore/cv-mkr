@@ -28,7 +28,7 @@ const resumeModel: TSRcReduxModel.Props<TSResume.IntactResume> = {
       },
     },
     contact: {
-      phone: '187****6079',
+      phone: '12345678910',
       email: '3224266014@qq.com',
       github: 'https://github.com/yesmore',
       juejin: '',
@@ -36,7 +36,7 @@ const resumeModel: TSRcReduxModel.Props<TSResume.IntactResume> = {
     },
     work: {
       job: '前端工程师',
-      city: '成都｜北京｜杭州',
+      city: '成都｜深圳｜杭州',
       cityList: ['成都', '北京', '杭州'],
     },
 

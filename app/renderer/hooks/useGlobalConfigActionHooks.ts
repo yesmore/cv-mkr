@@ -3,7 +3,7 @@
  */
 import path from 'path';
 import _ from 'lodash';
-import { getAppPath, fileAction } from '@common/utils';
+import { getUserStoreDataPath, fileAction } from '@common/utils';
 
 /**
  * @description 读取全局配置文件的内容
@@ -12,7 +12,7 @@ export function useReadGlobalConfigFile() {
   return () => {
     return new Promise(
       (resolve: (values: { [key: string]: any }) => void, reject: (value: Error) => void) => {
-        getAppPath().then((appPath: string) => {
+        getUserStoreDataPath().then((appPath: string) => {
           const jsonPath = path.join(appPath, 'config/global.config.json');
           fileAction
             .hasFile(jsonPath)
@@ -21,7 +21,7 @@ export function useReadGlobalConfigFile() {
               resolve(JSON.parse(themeConfigValues));
             })
             .catch(() => {
-              reject(new Error('appConfig does not exist !'));
+              reject(new Error('config does not exist !'));
             });
         });
       }
@@ -38,7 +38,7 @@ export function useReadGlobalConfigFile() {
 export function useUpdateGlobalConfigFile() {
   const readGlobalConfigFile = useReadGlobalConfigFile();
   return (updateKey: string, updateValues: any, callback?: () => void) => {
-    getAppPath().then((appPath: string) => {
+    getUserStoreDataPath().then((appPath: string) => {
       const jsonPath = path.join(appPath, 'config/global.config.json');
       readGlobalConfigFile().then((values: { [key: string]: any }) => {
         if (values && !!Object.keys(values).length) {

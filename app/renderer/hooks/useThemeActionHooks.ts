@@ -1,7 +1,7 @@
 import path from 'path';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
-import { getAppPath, fileAction } from '@common/utils';
+import { fileAction, getUserStoreDataPath } from '@common/utils';
 
 /**
  * @description 获取当前主题与修改组件方法
@@ -51,17 +51,23 @@ function useInitThemeConfig() {
 function useSelectTheme() {
   const dispatch = useDispatch();
   return (themeConfigValues: any) => {
-    const prevTheme: string = themeConfigValues?.currentTheme || '';
+    // 在 theme.config.json 存储到是 currentTheme 对象，而不是一个 id，需要改成这样
+    // const prevTheme: string = themeConfigValues?.currentTheme || '';
+    const prevTheme: TSTheme.Item = themeConfigValues?.currentTheme;
     const initTheme = { id: 'dark', fontColor: '#ffffff', backgroundColor: '#27292c' };
 
     let nextTheme: TSTheme.Item;
+
     if (themeConfigValues?.themeList.length > 0) {
-      if (prevTheme)
-        nextTheme = _.find(themeConfigValues?.themeList, { id: prevTheme?.id }) || initTheme;
-      else nextTheme = themeConfigValues?.themeList[0];
+      // if (prevTheme)
+      //   nextTheme = _.find(themeConfigValues?.themeList, { id: prevTheme?.id }) || initTheme;
+      // else nextTheme = themeConfigValues?.themeList[0];
+      // 并不是通过 id 去找，而是直接使用当前主题，需要改成这样
+      if (prevTheme) nextTheme = prevTheme || initTheme;
     } else {
       nextTheme = initTheme;
     }
+
     dispatch({
       type: 'themeModel/setStoreList',
       payload: [
@@ -85,8 +91,10 @@ function useReadAppConfigThemeFile() {
   return () => {
     return new Promise(
       (resolve: (values: { [key: string]: any }) => void, reject: (value: Error) => void) => {
-        getAppPath().then((appPath: string) => {
+        getUserStoreDataPath().then((appPath: string) => {
+          // C:\Users\86136\AppData\Roaming\Electron\config\theme.config.json
           const jsonPath = path.join(appPath, 'config/theme.config.json');
+          // console.log(jsonPath);
 
           fileAction
             .hasFile(jsonPath)
@@ -96,7 +104,7 @@ function useReadAppConfigThemeFile() {
               resolve(JSON.parse(themeConfigValues));
             })
             .catch(() => {
-              reject(new Error('config does not exist!'));
+              reject(new Error('Theme config does not exist!'));
             });
         });
       }
@@ -113,7 +121,7 @@ function useReadAppConfigThemeFile() {
 function useUpdateAppConfigThemeFile() {
   const readAppConfigThemeFile = useReadAppConfigThemeFile();
   return (updateKey: string, updateValues: any, callback?: () => void) => {
-    getAppPath().then((appPath: string) => {
+    getUserStoreDataPath().then((appPath: string) => {
       const jsonPath = path.join(appPath, 'config/theme.config.json');
       readAppConfigThemeFile().then((values: { [key: string]: any }) => {
         if (values && !!Object.keys(values).length) {

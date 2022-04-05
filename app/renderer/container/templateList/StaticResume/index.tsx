@@ -5,7 +5,7 @@ import * as TemplateList from '@src/container/templates';
 import TaskScrollBox from '@src/components/TaskScrollBox';
 import TaskEmpty from '@src/components/TaskEmpty';
 import TaskButton from '@src/components/TaskButton';
-import EmptyPng from '@src/assets/icon/empty.png';
+import EmptyPng from '@assets/icon/empty.png';
 import Footer from '../Footer';
 import './index.less';
 

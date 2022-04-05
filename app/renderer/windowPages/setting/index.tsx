@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ipcRenderer } from 'electron';
 import { useReadGlobalConfigFile, useUpdateGlobalConfigFile } from '@src/hooks';
-import { getAppPath } from '@common/utils';
+import { getUserStoreDataPath } from '@common/utils';
 import './index.less';
 
 function Setting() {
@@ -17,10 +17,11 @@ function Setting() {
       if (value?.resumeSavePath) {
         setResumeSavePath(value?.resumeSavePath);
       } else {
-        // 不存在默认路径，则设置默认路径并更新文件内容
-        getAppPath().then((appPath: string) => {
-          setResumeSavePath(`${appPath}cache`);
-          updateGlobalConfigFile('resumeSavePath', `${appPath}cache`);
+        // 否则获取 userData 路径，以 userData 路径为准
+        // 更新 global.config.json 中的应用存储路径字段
+        getUserStoreDataPath().then((appPath: string) => {
+          setResumeSavePath(`${appPath}/cache`);
+          updateGlobalConfigFile('resumeSavePath', `${appPath}/cache`);
         });
       }
     });
@@ -53,11 +54,21 @@ function Setting() {
 
   return (
     <div styleName="container">
-      <p styleName="label">修改简历数据储存路径</p>
-      <div styleName="input">
-        <div styleName="value">{resumeSavePath || '当前存储路径为：'}</div>
-        <div styleName="update-btn" onClick={onChangePath}>
-          更改路径
+      <div styleName="menu">
+        <div styleName="hide" onClick={onHideWindow}>
+          x
+        </div>
+        <div styleName="min" onClick={onMinWindow}>
+          -
+        </div>
+      </div>
+      <div styleName="content">
+        <p styleName="label">应用缓存路径(不建议修改)</p>
+        <div styleName="input">
+          <div styleName="value">{resumeSavePath || '当前存储路径为：'}</div>
+          <div styleName="update-btn" onClick={onChangePath}>
+            更改路径
+          </div>
         </div>
       </div>
     </div>

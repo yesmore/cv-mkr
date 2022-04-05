@@ -20,19 +20,19 @@ function Project() {
           </div>
           <div styleName="right">
             <p>
-              <span>visResumeMook 可视化简历平台 -前端工程师</span>
+              <span>Italk 社交App - 独立开发</span>
             </p>
           </div>
           <div styleName="text">
             <ul styleName="item-box">
               <li styleName="item-content">
-                <span>Electron + React Hooks 打造简历平台，只需输入一次信息，套用多份模版</span>
+                <span>Uni-app + Express 打造的社交聊天App</span>
               </li>
               <li styleName="item-content">
-                <span>通过 jsonfile 方式实现主题换肤，支持导出 PDF 简历文档</span>
+                <span>描述2</span>
               </li>
               <li styleName="item-content">
-                <span>通过可视化拖拽形式，自定义组件模版</span>
+                <span>描述3</span>
               </li>
             </ul>
           </div>

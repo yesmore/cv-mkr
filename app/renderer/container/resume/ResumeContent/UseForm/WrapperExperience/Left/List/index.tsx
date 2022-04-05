@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatToString } from '@common/utils/time';
-import DeleteIcon from '@src/assets/icon/delete.png';
+import DeleteIcon from '@assets/icon/delete.png';
 import { AdapterExperienceType } from '../../adapter';
 import './index.less';
 

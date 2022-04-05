@@ -5,6 +5,7 @@ import { useThemeActionHooks, useReadDirAssetsTemplateHooks } from '@src/hooks';
 import Root from '@src/container/root';
 import Resume from '@src/container/resume';
 import TemplateList from '@src/container/templateList';
+// import TaskHeader from '@src/components/TaskHeader';
 import { ROUTER } from '@common/constants';
 
 function Router() {
@@ -18,6 +19,7 @@ function Router() {
 
   return (
     <HashRouter>
+      {/* <TaskHeader /> */}
       <CacheSwitch>
         <CacheRoute path={ROUTER.root} exact component={Root} />
         <CacheRoute path={ROUTER.resume} exact component={Resume} />

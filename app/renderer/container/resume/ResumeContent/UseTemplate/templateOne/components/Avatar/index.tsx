@@ -5,7 +5,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import useUpdateResumeHook from '@src/container/resume/ResumeContent/useUpdateResumeHook';
-import uploadIcon from '@src/assets/icon/upload.png';
+import uploadIcon from '@assets/icon/upload.png';
 import TaskButton from '@src/components/TaskButton';
 import ImageUpload from '@src/components/TaskUpload/ImageUpload';
 import './index.less';

@@ -4,7 +4,7 @@ import Router from '@src/router';
 import store from '@src/store';
 import { Provider } from 'react-redux';
 
-import './assets/styles/normalize.less';
+import './common/styles/normalize.less';
 
 function App() {
   return (

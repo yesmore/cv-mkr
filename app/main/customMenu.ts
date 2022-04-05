@@ -1,28 +1,8 @@
 import _ from 'lodash';
-import { MyBrowserWindow } from './electron';
+import { MyBrowserWindow, isDev } from './electron';
 import { MenuItemConstructorOptions, shell, app, MenuItem, BrowserWindow } from 'electron';
 
 const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
-  {
-    // 一级菜单栏标签名称
-    label: '平台',
-    role: 'help',
-    // 子菜单
-    submenu: [
-      {
-        label: '源码',
-        click: function () {
-          shell.openExternal('https://github.com/PDKSophia/visResumeMook');
-        },
-      },
-      {
-        label: '小册',
-        click: function () {
-          shell.openExternal('https://juejin.cn/book/6950646725295996940');
-        },
-      },
-    ],
-  },
   {
     label: '编辑',
     submenu: [
@@ -88,22 +68,22 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
           }
         },
       },
-      {
-        label: '切换开发者工具',
-        role: 'toggleDevTools',
-        accelerator: (() => {
-          if (process.platform === 'darwin') {
-            return 'Alt+Command+I';
-          } else {
-            return 'Ctrl+Shift+I';
-          }
-        })(),
-        click: (item, focusedWindow) => {
-          if (focusedWindow) {
-            focusedWindow.webContents.openDevTools();
-          }
-        },
-      },
+      // {
+      //   label: '开发者工具',
+      //   role: 'toggleDevTools',
+      //   accelerator: (() => {
+      //     if (process.platform === 'darwin') {
+      //       return 'Alt+Command+I';
+      //     } else {
+      //       return 'Ctrl+Shift+I';
+      //     }
+      //   })(),
+      //   click: (item, focusedWindow) => {
+      //     if (focusedWindow) {
+      //       focusedWindow.webContents.openDevTools();
+      //     }
+      //   },
+      // },
     ],
   },
   {
@@ -129,7 +109,7 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
     label: '设置',
     submenu: [
       {
-        label: '修改简历数据储存路径',
+        label: '缓存路径',
         click: () => {
           const wins: MyBrowserWindow[] = BrowserWindow.getAllWindows();
           const currentWindow = _.find(wins, (w) => w.uid === 'settingWindow');
@@ -146,6 +126,25 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
     ],
   },
 ];
+
+if (isDev()) {
+  (customMenu[1]?.submenu as any).push({
+    label: '开发者工具',
+    role: 'toggleDevTools',
+    accelerator: (() => {
+      if (process.platform === 'darwin') {
+        return 'Alt+Command+I';
+      } else {
+        return 'Ctrl+Shift+I';
+      }
+    })(),
+    click: (item: any, focusedWindow: MyBrowserWindow) => {
+      if (focusedWindow) {
+        focusedWindow.webContents.openDevTools();
+      }
+    },
+  });
+}
 
 if (process.platform === 'darwin') {
   const { name } = app;

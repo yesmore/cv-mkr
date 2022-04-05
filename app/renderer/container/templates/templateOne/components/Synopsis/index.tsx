@@ -8,14 +8,14 @@ import './index.less';
 function Synopsis() {
   return (
     <div styleName="content">
-      <p styleName="name">彭道宽</p>
+      <p styleName="name">xx熙</p>
       <p styleName="job">前端工程师</p>
       <p styleName="summary">
         {[
-          '投身开源，rc-redux-model 库作者，SugarTurboS Club 开源组织负责人',
-          '掘金 lv3 博主，掘金文章 10w+ 阅读量，github blog 300+ star',
-          '具备良好语言表达能力和沟通能力，能快速融入团队，适应新环境。',
-          '具有代码洁癖，前后端分离，自我学习能力强，对新技术具有钻研精神',
+          '自学两年前端，从慢慢独自摸索到为他人答疑解惑，对前端技术不断深入和扩展学习，让我保持着对前端的热情',
+          '平时喜欢逛 Github，用 hexo 搭建了自己的 博客；喜欢探索新技术，如用 Serverless 平台托管应用',
+          '也有 Electron 开发桌面端应用、用 Nodejs 开发 脚手架 工具和开发 组件库 的经验',
+          '除此之外也与志同道合的伙伴建立 开发团队，锻炼团队协作能力。',
         ].join('，')}
       </p>
     </div>

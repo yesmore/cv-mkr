@@ -8,7 +8,7 @@ import Button from '@src/components/HomeButton';
 import { ROUTER_ENTRY, ROUTER_KEY, REPO } from '@common/constants';
 import { isHttpOrHttpsUrl, compilePath } from '@common/utils';
 import './index.less';
-import Logo from '@src/assets/logo.png';
+import Logo from '@assets/logo.png';
 
 function Root() {
   const history = useHistory();

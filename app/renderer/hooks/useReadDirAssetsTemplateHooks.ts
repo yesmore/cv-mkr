@@ -13,21 +13,21 @@ export default function () {
       // console.log(appPath);
       // 2. 从assets读取模版图片信息，构造模版列表
       fileAction
-        .readDir(`${appPath}app/renderer/assets/template`)
+        .readDir(`${appPath}/assets/template`)
         .then(async (files: string[]) => {
           // 3. 构造模版列表
           if (files.length > 0) {
             let templateList: TSTemplate.Item[] = [];
             for (let idx = 0; idx < files.length; idx++) {
               const base64URL = await fileAction.read(
-                `${appPath}app/renderer/assets/template/${files[idx]}`,
+                `${appPath}/assets/template/${files[idx]}`,
                 'base64'
               );
 
               templateList.push({
                 templateIndex: idx,
                 templateName: files[idx],
-                templatePath: `${appPath}app/renderer/assets/template/${files[idx]}`,
+                templatePath: `${appPath}/assets/template/${files[idx]}`,
                 templateId: createUID(),
                 templateCover: `data:image/png;base64,${base64URL}`,
               });

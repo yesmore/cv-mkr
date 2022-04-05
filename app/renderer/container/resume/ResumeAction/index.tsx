@@ -14,7 +14,7 @@ import {
   fileAction,
   createUID,
   intToDateString,
-  getAppPath,
+  getUserStoreDataPath,
 } from '@common/utils';
 import { ROUTER, ROUTER_KEY } from '@common/constants';
 import './index.less';
@@ -57,9 +57,9 @@ function ResumeAction() {
         saveResumeJson(value?.resumeSavePath);
       } else {
         // 不存在默认路径，则设置默认路径并更新文件内容
-        getAppPath().then((appPath: string) => {
-          updateGlobalConfigFile('resumeSavePath', `${appPath}cache`);
-          saveResumeJson(`${appPath}cache`);
+        getUserStoreDataPath().then((appPath: string) => {
+          updateGlobalConfigFile('resumeSavePath', `${appPath}/cache`);
+          saveResumeJson(`${appPath}/cache`);
         });
       }
     });
@@ -71,14 +71,26 @@ function ResumeAction() {
     const prefix = `${date}_${base?.username}_${base?.school}_${work?.job}_${createUID()}.json`;
     // 如果路径中不存在 resumeCache 文件夹，则默认创建此文件夹
     if (resumeSavePath && resumeSavePath.search('cache') > -1) {
-      fileAction?.write(`${resumeSavePath}/${prefix}`, JSON.stringify(resume), 'utf8');
+      fileAction
+        ?.canRead(resumeSavePath)
+        .then(() => {
+          fileAction?.write(`${resumeSavePath}/${prefix}`, JSON.stringify(resume), 'utf8');
+        })
+        .catch(() => {
+          fileAction
+            .mkdirDir(resumeSavePath)
+            .then(() => {
+              fileAction?.write(`${resumeSavePath}/${prefix}`, JSON.stringify(resume), 'utf8');
+            })
+            .catch(() => {
+              console.log('创建文件夹失败');
+            });
+        });
     } else {
       fileAction
         ?.mkdirDir(`${resumeSavePath}/cache`)
-        .then((path) => {
-          if (path) {
-            fileAction?.write(`${path}/${prefix}`, JSON.stringify(resume), 'utf8');
-          }
+        .then(() => {
+          fileAction?.write(`${resumeSavePath}/cache/${prefix}`, JSON.stringify(resume), 'utf8');
         })
         .catch(() => {
           console.log('创建文件夹失败');

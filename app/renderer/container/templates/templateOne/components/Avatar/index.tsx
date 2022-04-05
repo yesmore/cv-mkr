@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import './index.less';
-import AvatarImage from '@src/assets/avatar.png';
+import AvatarImage from '@assets/avatar.png';
 
 function Avatar() {
   return (
