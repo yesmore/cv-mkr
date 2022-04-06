@@ -1,6 +1,6 @@
 {
   "name": "cv-mkr",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "yesmore",
   "description": "mk cv",
   "main": "./dist/electron.js",
@@ -17,19 +17,21 @@
     "build:main": "webpack --config ./build/webpack.main.prod.js",
     "build:render": "webpack --config ./build/webpack.render.prod.js",
     "build:dll": "webpack --config ./build/webpack.dll.prod.js",
-    "build": "yarn build:main && yarn build:dll && yarn build:render && yarn dist",
-    "build:p": "yarn build:main && yarn build:dll && yarn build:render && yarn publish",
+    "build:icon": "electron-icon-builder --input=./assets/logo.png --output=dist --flatten",
+    "build": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn dist",
+    "build:r": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn release",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "publish": "electron-builder --win -p always",
+    "release": "cross-env GH_TOKEN=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 electron-builder -p always",
     "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron"
   },
   "build": {
-    "appId": "CVMKr.ElectronReact",
+    "appId": "CVMKr.yesmore.xx",
     "productName": "CVMKr",
     "copyright": "Copyright © 2022 ${author}",
     "extends": null,
-    "icon": "assets/icon.ico",
+    "compression": "maximum",
+    "icon": "dist/icons/icon.ico",
     "files": [
       "dist/**/*",
       "package.json",
@@ -62,7 +64,8 @@
       "target": [
         "nsis",
         "msi"
-      ]
+      ],
+      "icon": "dist/icons/icon.ico"
     },
     "nsis": {
       "oneClick": false,
@@ -110,9 +113,11 @@
     "classnames": "^2.3.1",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "copy-webpack-plugin": "^6.4.1",
+    "cross-env": "^7.0.3",
     "css-loader": "^3.0.0",
     "electron": "^11.1.1",
     "electron-builder": "^22.11.7",
+    "electron-icon-builder": "^2.0.1",
     "electron-updater": "4.6.5",
     "eslint": "^7.26.0",
     "eslint-config-alloy": "^4.1.0",
