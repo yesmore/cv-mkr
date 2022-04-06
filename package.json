@@ -1,6 +1,6 @@
 {
   "name": "cv-mkr",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "yesmore",
   "description": "mk cv",
   "main": "./dist/electron.js",
@@ -19,7 +19,7 @@
     "build:dll": "webpack --config ./build/webpack.dll.prod.js",
     "build:icon": "electron-icon-builder --input=./assets/logo.png --output=dist --flatten",
     "build": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn dist",
-    "build:r": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn release",
+    "build:r": "der go -re && yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn release",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "release": "cross-env GH_TOKEN=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 electron-builder -p always",
