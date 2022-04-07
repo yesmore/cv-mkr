@@ -17,7 +17,7 @@ export default function checkVersionUpdate() {
   autoUpdater.currentVersion = PKG.version;
   autoUpdater.logger = log;
   autoUpdater.logger.transports.file.level = 'info';
-  // autoUpdater.autoDownload = false; // 将自动下载包设置为false
+  autoUpdater.autoDownload = false; // 将自动下载包设置为false
 
   if (isDev()) {
     autoUpdater.updateConfigPath = path.join(__dirname, '../dev-app-update.yml');
@@ -33,12 +33,12 @@ export default function checkVersionUpdate() {
   });
 
   // 检查更新是否已开始时发出
-  autoUpdater.on('checking-for-update', () => {
-    // dialog.showMessageBox({
-    //   title: '开始更新',
-    //   message: 'Starting update check...',
-    // });
-  });
+  // autoUpdater.on('checking-for-update', () => {
+  //   dialog.showMessageBox({
+  //     title: '开始更新',
+  //     message: 'Starting update check...',
+  //   });
+  // });
 
   // 检测有可更新的应用包
   autoUpdater.on('update-available', (info) => {
@@ -76,12 +76,12 @@ export default function checkVersionUpdate() {
       });
   });
 
-  autoUpdater.on('download-progress', (progressObj) => {
-    // let log_message = 'Download speed: ' + progressObj.bytesPerSecond;
-    // log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
-    // log_message = log_message + ' (' + progressObj.transferred + '/' + progressObj.total + ')';
-    // sendStatusToWindow(log_message);
-  });
+  // autoUpdater.on('download-progress', (progressObj) => {
+  //   let log_message = 'Download speed: ' + progressObj.bytesPerSecond;
+  //   log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
+  //   log_message = log_message + ' (' + progressObj.transferred + '/' + progressObj.total + ')';
+  //   sendStatusToWindow(log_message);
+  // });
 }
 
 // 坑：node_module/electron-updater/out/AppUpdater.js中的require("fs/promises")改为require("fs").promises

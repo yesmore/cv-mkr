@@ -1,8 +1,8 @@
 {
   "name": "cv-mkr",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "author": "yesmore",
-  "description": "mk cv",
+  "description": "一个简历生成器",
   "main": "./dist/electron.js",
   "keywords": [
     "Electron",
