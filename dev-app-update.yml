@@ -1,0 +1,6 @@
+owner: yesmore
+repo: cv-mkr
+provider: github
+private: true
+releaseType: release
+updaterCacheDirName: cv-mkr-updater
