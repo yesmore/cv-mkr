@@ -1,6 +1,6 @@
 {
   "name": "cv-mkr",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "author": "yesmore",
   "description": "mk cv",
   "main": "./dist/electron.js",
@@ -11,6 +11,9 @@
     "CV Maker"
   ],
   "license": "GPL-3.0",
+  "config": {
+    "GH_TOKEN": "xxx"
+  },
   "scripts": {
     "start:main": "webpack --config ./build/webpack.main.dev.js && electron ./dist/electron.js",
     "start:render": "yarn build:dll && webpack-dev-server --config ./build/webpack.render.dev.js",
@@ -18,11 +21,9 @@
     "build:render": "webpack --config ./build/webpack.render.prod.js",
     "build:dll": "webpack --config ./build/webpack.dll.prod.js",
     "build:icon": "electron-icon-builder --input=./assets/icon.png --output=dist --flatten",
-    "build": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn dist",
-    "build:r": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn release",
+    "build": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn publish",
+    "publish": "cross-env GH_TOKEN=%npm_config_GH_TOKEN% electron-builder",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder",
-    "release": "cross-env GH_TOKEN=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 electron-builder",
     "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron"
   },
   "build": {
@@ -69,7 +70,8 @@
     },
     "nsis": {
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "dist/icons/icon.ico"
     },
     "publish": [{
       "provider": "github",
@@ -118,6 +120,7 @@
     "electron": "^11.1.1",
     "electron-builder": "^22.11.7",
     "electron-icon-builder": "^2.0.1",
+    "electron-log": "^2.2.17",
     "electron-updater": "4.6.5",
     "eslint": "^7.26.0",
     "eslint-config-alloy": "^4.1.0",
