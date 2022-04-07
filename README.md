@@ -1,5 +1,5 @@
 <p align="center">
-	<img width='231px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-logo.png' alt='CV MKr'/>
+	<img width='231px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-logo2.png' alt='CV MKr'/>
 </p>
 <p align="center">
     <img src="https://img.shields.io/github/downloads/yesmore/cv-mkr/total.svg?style=flat-square">
@@ -99,4 +99,4 @@ $ yarn start:main
 
 ## Licence
 
-Der cli is open source software licensed as [GPL](LICENSE)
+CV MKr is open source software licensed as [GPL](LICENSE)
