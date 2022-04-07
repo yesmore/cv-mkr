@@ -91,7 +91,7 @@ function ResumeToolbar() {
                         <div styleName="name">{addSlider.name}</div>
                         <div styleName="summary">{addSlider.summary}</div>
                       </div>
-                      {addSlider.require && <div styleName="tips">必选项</div>}
+                      {addSlider.require && <div styleName="tips">必填</div>}
                       {!addSlider.require && (
                         <div styleName="action">
                           <i styleName="edit" onClick={(e: React.MouseEvent) => {}} />
@@ -111,6 +111,7 @@ function ResumeToolbar() {
             </div>
           </div>
         )}
+
         {/* 未填写 */}
         {!!unAddToolbarList.length && (
           <div styleName="module">

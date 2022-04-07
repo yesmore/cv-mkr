@@ -3,7 +3,7 @@ import { dialog } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import { isDev } from './electron';
-import pkg from '../../package.json';
+import PKG from '../../package.json';
 
 function sendStatusToWindow(text) {
   log.info(text);
@@ -14,7 +14,7 @@ function sendStatusToWindow(text) {
 }
 
 export default function checkVersionUpdate() {
-  autoUpdater.currentVersion = pkg.version;
+  autoUpdater.currentVersion = PKG.version;
   autoUpdater.logger = log;
   autoUpdater.logger.transports.file.level = 'info';
   // autoUpdater.autoDownload = false; // 将自动下载包设置为false

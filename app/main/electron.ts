@@ -5,6 +5,7 @@ import path from 'path';
 import { app, BrowserWindow, ipcMain, dialog, Menu } from 'electron';
 import customMenu from './customMenu';
 import checkVersionUpdate from './updater';
+import PKG from '../../package.json';
 import './userData';
 import './log';
 
@@ -22,9 +23,11 @@ export function isDev() {
 function createWindow() {
   // 创建浏览器窗口
   const mainWindow: MyBrowserWindow = new BrowserWindow({
-    width: 1200,
-    height: 800,
-    // resizable: isDev(),
+    width: 1120,
+    height: 700,
+    title: 'CV MKr v' + PKG.version,
+    icon: '../../assets/icon.ico',
+    resizable: isDev(),
     // frame: false,
     // autoHideMenuBar: true,
     // useContentSize: true,
@@ -42,9 +45,10 @@ function createWindow() {
     },
   });
   mainWindow.uid = 'mainWindow';
-  // mainWindow.on('closed', () => {
-  //   mainWindow = null;
-  // });
+  mainWindow.on('closed', () => {
+    // mainWindow = null;
+    app.quit();
+  });
 
   // 去掉顶部菜单
   // mainWindow.setMenu(null);

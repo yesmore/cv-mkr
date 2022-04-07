@@ -10,7 +10,7 @@ import { isHttpOrHttpsUrl, compilePath } from '@common/utils';
 import './index.less';
 import Logo from '@assets/logo.png';
 
-function Root() {
+function Home() {
   const history = useHistory();
   const [currentTheme] = useThemeActionHooks.useGetCurrentTheme();
   const selectTemplate = useSelector((state: any) => state.templateModel.selectTemplate);
@@ -62,4 +62,4 @@ function Root() {
     </div>
   );
 }
-export default Root;
+export default Home;
