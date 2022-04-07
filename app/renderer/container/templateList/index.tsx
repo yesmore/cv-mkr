@@ -1,4 +1,5 @@
 import React from 'react';
+import { useThemeActionHooks } from '@src/hooks';
 import Header from './Header';
 import Navigation from './Navigation';
 import StaticResume from './StaticResume';
@@ -6,10 +7,12 @@ import TaskRectSize from '@src/components/TaskRectSize';
 import './index.less';
 
 function TemplateList() {
+  const [currentTheme] = useThemeActionHooks.useGetCurrentTheme();
+
   return (
-    <div styleName="container">
-      <Header />
-      <div styleName="content">
+    <div styleName="container" style={{ backgroundColor: currentTheme?.backgroundColor }}>
+      {/* <Header /> */}
+      <div>
         <TaskRectSize>
           <TaskRectSize.Left>
             <Navigation />

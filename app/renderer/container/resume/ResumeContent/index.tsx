@@ -20,7 +20,7 @@ import WorkExperience from './UseForm/WorkExperience';
 function ResumeContent() {
   const routerParams = useParams<{ fromPath: string; templateId: string; templateIndex: string }>();
 
-  const HEADER_ACTION_HEIGHT = 92;
+  const HEADER_ACTION_HEIGHT = 0;
   const [height, setHeight] = useState(0);
 
   const [formName, setFormName] = useState('');

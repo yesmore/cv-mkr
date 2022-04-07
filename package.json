@@ -1,6 +1,6 @@
 {
   "name": "cv-mkr",
-  "version": "0.2.1",
+  "version": "0.2.5",
   "author": "yesmore",
   "description": "mk cv",
   "main": "./dist/electron.js",
@@ -21,13 +21,13 @@
     "build:render": "webpack --config ./build/webpack.render.prod.js",
     "build:dll": "webpack --config ./build/webpack.dll.prod.js",
     "build:icon": "electron-icon-builder --input=./assets/icon.png --output=dist --flatten",
-    "build": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn publish",
-    "publish": "cross-env GH_TOKEN=%npm_config_GH_TOKEN% electron-builder",
+    "build": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn release",
+    "release": "cross-env GH_TOKEN=%npm_config_GH_TOKEN% electron-builder -p always",
     "pack": "electron-builder --dir",
     "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron"
   },
   "build": {
-    "appId": "CVMKr.yesmore.xx",
+    "appId": "CVMKr.app.yesmore",
     "productName": "CVMKr",
     "copyright": "Copyright © 2022 ${author}",
     "extends": null,

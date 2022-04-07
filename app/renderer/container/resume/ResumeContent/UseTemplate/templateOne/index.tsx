@@ -23,6 +23,7 @@ function TemplateOne() {
   const resumeToolbarKeys: string[] = useSelector(
     (state: any) => state.templateModel.resumeToolbarKeys
   );
+
   // 必须带有id，以方便导出时获取DOM元素内容
   return (
     <div styleName="a4-box">

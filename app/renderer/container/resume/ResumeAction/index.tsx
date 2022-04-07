@@ -4,8 +4,12 @@
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
-import { useReadGlobalConfigFile, useUpdateGlobalConfigFile } from '@src/hooks';
-import { useClickAway } from '@src/hooks';
+import {
+  useReadGlobalConfigFile,
+  useUpdateGlobalConfigFile,
+  useClickAway,
+  useThemeActionHooks,
+} from '@src/hooks';
 import TaskButton from '@src/components/TaskButton';
 import TaskModal from '@src/components/TaskModal';
 import {
@@ -30,7 +34,7 @@ function ResumeAction() {
 
   const readAppConfigThemeFile = useReadGlobalConfigFile();
   const updateGlobalConfigFile = useUpdateGlobalConfigFile();
-
+  const [currentTheme] = useThemeActionHooks.useGetCurrentTheme();
   const { ref, componentVisible, setComponentVisible } = useClickAway(false);
 
   // 返回首页
@@ -104,10 +108,15 @@ function ResumeAction() {
         主页
       </TaskButton>
       <TaskButton size="middle" styleName="back" onClick={onChoseTpl}>
-        选择模板
+        模板
       </TaskButton>
-      <TaskButton size="middle" className="export-btn" onClick={() => setComponentVisible(true)}>
-        导出PDF
+      <TaskButton
+        size="middle"
+        className="export-btn"
+        onClick={() => setComponentVisible(true)}
+        style={{ backgroundColor: currentTheme?.backgroundColor }}
+      >
+        导出
       </TaskButton>
 
       {componentVisible && (

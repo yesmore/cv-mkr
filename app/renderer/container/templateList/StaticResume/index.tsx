@@ -13,7 +13,7 @@ import './index.less';
 const VALID_TEMPLATE = [0];
 
 function StaticResume() {
-  const HEADER_HEIGHT = 76; // 距离头部距离
+  const HEADER_HEIGHT = 0; // 距离头部距离
   const height = document.body.clientHeight;
   const selectTemplate: TSTemplate.Item = useSelector(
     (state: any) => state.templateModel.selectTemplate
@@ -53,7 +53,7 @@ const LackDesc = React.memo(({ label }: { label: string }) => {
           size="middle"
           className="use-btn"
           onClick={() => {
-            shell.openExternal('https://github.com/yesmore/cv-mkr/issues/4');
+            shell.openExternal('https://github.com/yesmore/cv-mkr/issues/1');
           }}
         >
           贡献模版
