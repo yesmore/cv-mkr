@@ -6,6 +6,7 @@ import { app, BrowserWindow, ipcMain, dialog, Menu } from 'electron';
 import customMenu from './customMenu';
 import checkVersionUpdate from './updater';
 import './userData';
+import './log';
 
 const ROOT_PATH = path.join(app.getAppPath(), '../');
 
@@ -94,6 +95,10 @@ app.on('ready', () => {
   checkVersionUpdate();
   const menu = Menu.buildFromTemplate(customMenu);
   Menu.setApplicationMenu(menu);
+});
+
+app.on('window-all-closed', () => {
+  app.quit();
 });
 
 // 监听渲染进程发的消息并回复
