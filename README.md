@@ -1,12 +1,14 @@
 <p align="center">
 	<img width='231px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-logo2.png' alt='CV MKr'/>
 </p>
-<p align="center">
+<div style='display:none;justify-content:center;' align="center">
     <img src="https://img.shields.io/github/downloads/yesmore/cv-mkr/total.svg?style=flat-square">
     <img src="https://img.shields.io/github/stars/yesmore/cv-mkr.svg?logo=github&style=flat-square" alt="star"/>
 	<img src="https://img.shields.io/github/license/yesmore/cv-mkr?style=flat-square" alt="GPL"/>
-</p>
+</div>
 <p align="center">🎨简历定制 & 一键导出</p>
+
+![Home](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-home.png)
 
 ## 应用简介
 
@@ -37,11 +39,7 @@
 
 ## 使用方法
 
-（1）安装完成后（无脑下一步即可），双击图标启动软件进入首页：
-
-> 主页
-
-![Home](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-home.png)
+（1）安装完成后（无脑下一步即可），双击图标启动软件进入首页(略)；
 
 （2）单击 “现在开始” 进入简历编辑页面：
 
