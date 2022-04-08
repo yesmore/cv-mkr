@@ -53,7 +53,7 @@ const LackDesc = React.memo(({ label }: { label: string }) => {
           size="middle"
           className="use-btn"
           onClick={() => {
-            shell.openExternal('https://github.com/yesmore/cv-mkr/issues/1');
+            shell.openExternal('https://github.com/yesmore/cv-mkr/issues/6');
           }}
         >
           贡献模版

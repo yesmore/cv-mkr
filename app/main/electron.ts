@@ -63,6 +63,7 @@ function createWindow() {
     webPreferences: {
       devTools: isDev(),
       nodeIntegration: true,
+      contextIsolation: false,
     },
   });
   settingWindow.uid = 'settingWindow';
