@@ -14,19 +14,25 @@
 
 ## 功能特性
 
-- 多种简历模板选择（开发中...
+#### 特点
+
+- 多种简历模板选择 (开发中)
 - 一键导出PDF
 - 快速导入简历数据
 - 主题更换
-- 支持 windows 10/11 
-- ...
+
+#### 跨平台
+
+- windows 10/11 
+- Mac (未测试)
+- Linux (未测试)
 
 ## 下载软件
 
 点击这里[下载](https://github.com/yesmore/cv-mkr/releases)
 
-- 点击最新版本下载其**安装包**（ `exe` 文件）即可，如 [CVMKr-Setup-0.2.6.exe](https://github.com/yesmore/cv-mkr/releases/download/v0.2.6/CVMKr-Setup-0.2.6.exe)
-- 或者点击 `msi` 文件无需安装下载即用，如 [CVMKr-0.2.6.msi](https://github.com/yesmore/cv-mkr/releases/download/v0.2.6/CVMKr-0.2.6.msi)
+- 点击最新版本下载其**安装包**（ `exe` 文件）手动安装即可，如 [CVMKr-Setup-0.2.6.exe](https://github.com/yesmore/cv-mkr/releases/download/v0.2.6/CVMKr-Setup-0.2.6.exe)；
+- 或者点击 `msi` 文件无需安装包，下载即用，如 [CVMKr-0.2.6.msi](https://github.com/yesmore/cv-mkr/releases/download/v0.2.6/CVMKr-0.2.6.msi)
 
 ## 使用方法
 

@@ -30,7 +30,7 @@ export function useReadGlobalConfigFile() {
 }
 
 /**
- * @description 读取配置文件的内容
+ * @description 更新配置文件的内容
  * @param {string} updateKey 键
  * @param {any} updateValues 值
  * @param {function} callback 回调函数

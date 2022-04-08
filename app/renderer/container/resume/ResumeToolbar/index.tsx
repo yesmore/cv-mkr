@@ -11,7 +11,8 @@ import './index.less';
 
 function ResumeToolbar() {
   const dispatch = useDispatch();
-  const height = document.body.clientHeight;
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
 
   const [addToolbarList, setAddToolbarList] = useState<TSResume.SliderItem[]>([]);
   const [unAddToolbarList, setUnAddToolbarList] = useState<TSResume.SliderItem[]>([]);
@@ -31,6 +32,15 @@ function ResumeToolbar() {
       changeResumeToolbarKeys(_addToolbarList.map((s) => s.key));
     }
   }, []);
+
+  useEffect(() => {
+    if (document.body && document.body.clientWidth > 0) {
+      setWidth(document.body.clientWidth);
+    }
+    if (document.body && document.body.clientHeight > 0) {
+      setHeight(document.body.clientHeight);
+    }
+  }, [document.body]);
 
   // 工具条改变: 触发action更新state
   const changeResumeToolbarKeys = (moduleKeys: string[]) => {
@@ -64,7 +74,7 @@ function ResumeToolbar() {
   };
 
   return (
-    <div styleName="slider">
+    <div styleName="slider" style={{ width: width - 820 > 0 ? width - 820 : 286 }}>
       <TaskScrollBox maxHeight={height - 180}>
         {/* 已填写 */}
         {!!addToolbarList.length && (
