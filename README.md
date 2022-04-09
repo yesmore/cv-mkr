@@ -54,13 +54,13 @@ Windows点击这里[下载最新版](https://github.com/yesmore/cv-mkr/releases)
 
 > 简历编辑页
 
-![resume](./assets/app/cv-mkr-resume.png)
+![resume](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-resume1.png)
 
 （3）点击左侧工具栏项进行信息填写：
 
 > 编辑对话框
 
-![](./assets/app/cv-mkr-edit.png)
+![](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-edit1.png)
 
 单击 “已添加” 工具栏项，会弹出对话框填写信息；
 
@@ -70,11 +70,11 @@ Windows点击这里[下载最新版](https://github.com/yesmore/cv-mkr/releases)
 
 > 模板列表页
 
-![Tpl](./assets/app/cv-mkr-tpl.png)
+![Tpl](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-tpl1.png)
 
 （5）单击简历编辑页右上角 “导出” 按钮，即可导出为PDF / 图片 / HTML：
 
-![PDF](./assets/app/cv-mkr-export.png)
+![PDF](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-export1.png)
 
 > 导出文件名默认为 “姓名-电话-岗位.pdf”
 
