@@ -10,6 +10,8 @@
 
 ![Home](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-home.png)
 
+
+
 ## 应用简介
 
 `CV MKr` 是一款使用 Electron 开发的桌面应用软件，可以帮助您快速生成**简历**（内置模板）。
@@ -18,24 +20,31 @@
 
 #### 特点：
 
-- 多种简历模板选择 (开发中)
-- 一键导出PDF
-- 快速导入简历数据
-- 主题更换
-- 客户端自动更新
+- 多种简历模板选择 
+- 一键导出PDF、图片、HTML
+- 快速导入历史数据、主题更换、自动更新客户端
+- **无印** (**水印**) **良品**！
+
+#### 适用平台：
 
 #### 跨平台：
 
-- windows 10/11 
+- Windows 10/11 
 - Mac (未测试)
 - Linux (未测试)
 
+#### 未来计划
+
+- 支持在线预览简历
+
+
+
 ## 下载软件
 
-点击这里[下载](https://github.com/yesmore/cv-mkr/releases)
+Windows点击这里[下载最新版](https://github.com/yesmore/cv-mkr/releases).
 
-- 点击最新版本下载其**安装包**（ `exe` 文件）手动安装即可，如 [CVMKr-Setup-0.2.12.exe](https://github.com/yesmore/cv-mkr/releases/download/v0.2.12/CVMKr-Setup-0.2.12.exe)；
-- 或者点击 `msi` 文件无需安装包，下载即用，如 [CVMKr-0.2.12.msi](https://github.com/yesmore/cv-mkr/releases/download/v0.2.12/CVMKr-0.2.12.msi)
+- 点击最新版本下载其**安装包**（ `exe` 文件）手动安装即可，如 [CVMKr-Setup-0.x.x.exe](https://github.com/yesmore/cv-mkr/releases/download/v0.2.12/CVMKr-Setup-0.2.12.exe)；
+- 或者点击 `msi` 文件无需安装包，下载即用，如 [CVMKr-0.x.x.msi](https://github.com/yesmore/cv-mkr/releases/download/v0.2.12/CVMKr-0.2.12.msi)
 
 ## 使用方法
 
@@ -45,13 +54,13 @@
 
 > 简历编辑页
 
-![resume](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-resume.png)
+![resume](./assets/app/cv-mkr-resume.png)
 
 （3）点击左侧工具栏项进行信息填写：
 
 > 编辑对话框
 
-![](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-edit.png)
+![](./assets/app/cv-mkr-edit.png)
 
 单击 “已添加” 工具栏项，会弹出对话框填写信息；
 
@@ -61,11 +70,11 @@
 
 > 模板列表页
 
-![Tpl](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-tpl.png)
+![Tpl](./assets/app/cv-mkr-tpl.png)
 
-（5）单击简历编辑页右上角 “导出” 按钮，即可导出为PDF：
+（5）单击简历编辑页右上角 “导出” 按钮，即可导出为PDF / 图片 / HTML：
 
-![PDF](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-export.png)
+![PDF](./assets/app/cv-mkr-export.png)
 
 > 导出文件名默认为 “姓名-电话-岗位.pdf”
 
@@ -80,8 +89,6 @@ $ git clone git@github.com:yesmore/cv-mkr.git
 # or http
 $ git clone https://github.com/yesmore/cv-mkr
 ```
-
-
 
 ### 本地调试
 

@@ -2,9 +2,9 @@
  * @description 弹窗组件
  */
 import React from 'react';
-import './index.less';
 import TaskButton from '@src/components/TaskButton';
 import { IDialogModal } from '../types';
+import './index.less';
 
 function TaskDialog({
   title,
@@ -18,6 +18,7 @@ function TaskDialog({
   childStyle,
 }: IDialogModal) {
   const { cancelBtn = { isShow: true }, submitBtn = { isShow: true } } = config;
+
   return (
     <div styleName="vis-mask">
       <div styleName="center">
@@ -37,6 +38,7 @@ function TaskDialog({
           <div styleName="vis-dialog-content" style={childStyle}>
             {children}
           </div>
+
           {showFooter &&
             (renderFooter || (
               <div styleName="vis-dialog-footer">

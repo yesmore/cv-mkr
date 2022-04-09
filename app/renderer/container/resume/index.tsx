@@ -3,6 +3,8 @@ import { useThemeActionHooks } from '@src/hooks';
 import ResumeAction from './ResumeAction';
 import ResumeContent from './ResumeContent';
 import ResumeToolbar from './ResumeToolbar';
+import ResumeSetting from './ResumeSetting';
+
 import TaskInput from '@src/components/TaskInput';
 import TaskScrollBox from '@src/components/TaskScrollBox';
 import './index.less';
@@ -19,10 +21,7 @@ function Resume() {
       <div styleName="toolbar">
         <ResumeAction />
         <ResumeToolbar />
-        {/* TODO */}
-        {/* <div>
-          <p>说明</p>
-        </div> */}
+        <ResumeSetting />
       </div>
     </div>
   );

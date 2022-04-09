@@ -14,7 +14,7 @@ interface IProps {
 
 function Personal({ onClose }: IProps) {
   const updateResumeHook = useUpdateResumeHook();
-  const hobby: string = useSelector((state: any) => state.resumeModel.hobby);
+  // const hobby: string = useSelector((state: any) => state.resumeModel.hobby);
   const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
 
   return (
@@ -73,11 +73,11 @@ function Personal({ onClose }: IProps) {
             <TaskInput
               type="textarea"
               onChange={(e) => {
-                updateResumeHook('hobby', e.target?.value || '');
+                updateResumeHook('base/hobby', e.target?.value || '');
               }}
               rows={5}
-              value={hobby || ''}
-              placeholder="你有什么特长爱好呢"
+              value={base?.hobby || ''}
+              placeholder="特长爱好"
               allowClear={true}
             />
           </div>

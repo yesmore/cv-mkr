@@ -4,6 +4,46 @@
   background: #ffffff98;
   text-align: center;
 
+  .actions-pre-export {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: start;
+
+    .action-export-a {
+      text-decoration: none;
+
+      &:hover {
+        .action-export-img {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .actions-export-config {
+      // flex: 1;
+      width: 50vh;
+
+      .actions-export-config-list {
+        p {
+          margin-top: 10px;
+
+          span {
+            padding-left: 6px;
+          }
+        }
+      }
+    }
+
+    .action-export-img {
+      // flex: 2;
+      width: 50vh;
+      // height: 300px;
+      box-shadow: 1px 1px 5px #858585;
+      transition: all 0.3s;
+    }
+  }
+
   .back {
     background-color: #ffffff;
     font-size: 16px;

@@ -20,12 +20,22 @@ function useUpdateResumeHook() {
 
   return <T>(stateKey: string, stateValue: T) => {
     const keys = stateKey.split('/') || [];
-    if (keys[0]) {
+    if (stateKey === '*') {
+      updatePersonalHook('base', stateValue.base, true);
+      updateEvaluationHook('evaluation', stateValue.evaluation, true);
+      updateContactHook('contact', stateValue.contact, true);
+      updateWorkHook('work', stateValue.work, true);
+      updateCertificateHook('certificate', stateValue.certificate, true);
+      updateSkillHook('skill', stateValue.skill, true);
+      updateProjectExperience('projectExperience', stateValue.projectExperience, true);
+      updateSchoolExperience('schoolExperience', stateValue.schoolExperience, true);
+      updateWorkExperience('workExperience', stateValue.workExperience, true);
+    } else if (stateKey !== '*' && keys[0]) {
       if (keys[0] === 'base') updatePersonalHook(keys[1], stateValue);
       if (keys[0] === 'contact') updateContactHook(keys[1], stateValue);
       if (keys[0] === 'work') updateWorkHook(keys[1], stateValue);
       if (keys[0] === 'evaluation') updateEvaluationHook(keys[0], stateValue);
-      if (keys[0] === 'hobby') updateHobbyHook(keys[0], stateValue);
+      // if (keys[0] === 'hobby') updateHobbyHook(keys[0], stateValue);
       if (keys[0] === 'certificate') updateCertificateHook(keys[0], stateValue);
       if (keys[0] === 'skill') updateSkillHook(keys[0], stateValue);
       if (keys[0] === 'projectExperience') updateProjectExperience(keys[0], stateValue);
@@ -42,15 +52,17 @@ function useUpdatePersonalHook() {
   const dispatch = useDispatch();
   const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
 
-  return <T>(stateKey: string, stateValue: T) => {
+  return <T>(stateKey: string, stateValue: T, setAll: boolean = false) => {
     dispatch({
       type: 'resumeModel/setStore',
       payload: {
         key: 'base',
-        values: {
-          ...base,
-          [stateKey]: stateValue,
-        },
+        values: !setAll
+          ? {
+              ...base,
+              [stateKey]: stateValue,
+            }
+          : stateValue,
       },
     });
   };
@@ -63,15 +75,17 @@ function useUpdateContactHook() {
   const dispatch = useDispatch();
   const contact: TSResume.Contact = useSelector((state: any) => state.resumeModel.contact);
 
-  return <T>(stateKey: string, stateValue: T) => {
+  return <T>(stateKey: string, stateValue: T, setAll: boolean = false) => {
     dispatch({
       type: 'resumeModel/setStore',
       payload: {
         key: 'contact',
-        values: {
-          ...contact,
-          [stateKey]: stateValue,
-        },
+        values: !setAll
+          ? {
+              ...contact,
+              [stateKey]: stateValue,
+            }
+          : stateValue,
       },
     });
   };
@@ -84,7 +98,7 @@ function useUpdateWorkHook() {
   const dispatch = useDispatch();
   const work: TSResume.Work = useSelector((state: any) => state.resumeModel.work);
 
-  return <T>(stateKey: string, stateValue: T) => {
+  return <T>(stateKey: string, stateValue: T, setAll: boolean = false) => {
     let cityList = work?.cityList ? [...work.cityList] : [];
     if (stateKey === 'city') {
       cityList = (stateValue as any).split('｜');
@@ -93,11 +107,13 @@ function useUpdateWorkHook() {
       type: 'resumeModel/setStore',
       payload: {
         key: 'work',
-        values: {
-          ...work,
-          cityList,
-          [stateKey]: stateValue,
-        },
+        values: !setAll
+          ? {
+              ...work,
+              cityList,
+              [stateKey]: stateValue,
+            }
+          : stateValue,
       },
     });
   };
@@ -108,6 +124,7 @@ function useUpdateWorkHook() {
  */
 function useUpdateEvaluationHook() {
   const dispatch = useDispatch();
+
   return <T>(stateKey: string, stateValue: T) => {
     let evaluationList = stateValue ? (stateValue as any).split('｜') : [];
     dispatch({
@@ -131,11 +148,12 @@ function useUpdateEvaluationHook() {
  */
 function useUpdateHobbyHook() {
   const dispatch = useDispatch();
+
   return <T>(stateKey: string, stateValue: T) => {
     dispatch({
       type: 'resumeModel/setStore',
       payload: {
-        key: stateKey,
+        key: `base/${stateKey}`,
         values: stateValue,
       },
     });
@@ -217,7 +235,7 @@ function useUpdateProjectExperience() {
  */
 function useUpdateSchoolExperience() {
   const dispatch = useDispatch();
-  return <T>(stateKey: string, stateValue: T) => {
+  return <T>(stateKey: string, stateValue: T, setAll: boolean = false) => {
     let newList = (stateValue as any)?.map((s: AdapterExperienceType) => {
       let parseContent = s.content ? s.content.split('｜') : [];
       return {

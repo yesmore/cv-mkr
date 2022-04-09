@@ -68,22 +68,6 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
           }
         },
       },
-      // {
-      //   label: '开发者工具',
-      //   role: 'toggleDevTools',
-      //   accelerator: (() => {
-      //     if (process.platform === 'darwin') {
-      //       return 'Alt+Command+I';
-      //     } else {
-      //       return 'Ctrl+Shift+I';
-      //     }
-      //   })(),
-      //   click: (item, focusedWindow) => {
-      //     if (focusedWindow) {
-      //       focusedWindow.webContents.openDevTools();
-      //     }
-      //   },
-      // },
     ],
   },
   {

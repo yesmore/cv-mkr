@@ -22,15 +22,24 @@ import {
 } from '@common/utils';
 import { ROUTER, ROUTER_KEY } from '@common/constants';
 import './index.less';
+import { dialog } from 'electron';
 
 function ResumeAction() {
   const history = useHistory();
   const routerParams = useParams<{ fromPath: string; templateId: string; templateIndex: string }>();
+  const [baseData, setbaseData] = useState('');
+  const [PDFInstence, setPDFInstence] = useState();
+  const [exportConfig, setExportConfig] = useState([
+    { content: '导出PDF', checked: true },
+    { content: '导出图片 (点击图片保存)', checked: false },
+    { content: '在线链接 (开发中)', checked: false },
+  ]);
 
   const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
   const work: TSResume.Work = useSelector((state: any) => state.resumeModel.work);
   const contact: TSResume.Contact = useSelector((state: any) => state.resumeModel.contact);
   const resume = useSelector((state: any) => state.resumeModel);
+  const fileName = `${base?.username}-${contact?.phone}-${work?.job}`;
 
   const readAppConfigThemeFile = useReadGlobalConfigFile();
   const updateGlobalConfigFile = useUpdateGlobalConfigFile();
@@ -52,9 +61,33 @@ function ResumeAction() {
 
   const onChoseTpl = () => history.push(compilePath('/templateList'));
 
+  // 导出配置
+  const onChangeConfig = (index: number) => {
+    //复制原来的数组
+    var items = [...exportConfig];
+    //checked取反
+    items[index].checked = !items[index].checked;
+    setExportConfig(items);
+  };
+
+  // 预览图片
+  const onPreview = () => {
+    toPrintPdf(fileName).then((res) => {
+      setbaseData(res.tmpData);
+      setComponentVisible(true);
+      setPDFInstence(res.PDF);
+    });
+  };
+
   // 导出PDF
   const exportPdf = () => {
-    toPrintPdf(`${base?.username}-${contact?.phone}-${work?.job}`);
+    if (exportConfig[0].checked) {
+      PDFInstence?.save(fileName + '.pdf');
+    }
+    // TODO
+    if (exportConfig[2].checked) {
+    }
+
     setComponentVisible(false);
     readAppConfigThemeFile().then((value: { [key: string]: any }) => {
       if (value?.resumeSavePath) {
@@ -73,12 +106,14 @@ function ResumeAction() {
   const saveResumeJson = (resumeSavePath: string) => {
     const date = intToDateString(new Date().valueOf(), '_');
     const prefix = `${date}_${base?.username}_${base?.school}_${work?.job}_${createUID()}.json`;
+
     // 如果路径中不存在 resumeCache 文件夹，则默认创建此文件夹
     if (resumeSavePath && resumeSavePath.search('cache') > -1) {
       fileAction
         ?.canRead(resumeSavePath)
         .then(() => {
           fileAction?.write(`${resumeSavePath}/${prefix}`, JSON.stringify(resume), 'utf8');
+          updateGlobalConfigFile('latestExportFileName', prefix); // 保存最近导出的文件名
         })
         .catch(() => {
           fileAction
@@ -113,16 +148,16 @@ function ResumeAction() {
       <TaskButton
         size="middle"
         className="export-btn"
-        onClick={() => setComponentVisible(true)}
+        onClick={() => onPreview()}
         style={{ backgroundColor: currentTheme?.backgroundColor }}
       >
         导出
       </TaskButton>
 
       {componentVisible && (
-        <TaskModal.Confirm
-          title="确定要打印简历吗？"
-          description="请确保信息的正确，目前仅支持单页打印"
+        <TaskModal.Dialog
+          title="打印简历"
+          showFooter={true}
           config={{
             cancelBtn: {
               isShow: true,
@@ -133,7 +168,39 @@ function ResumeAction() {
               callback: exportPdf,
             },
           }}
-        />
+        >
+          <div styleName="actions-pre-export">
+            {baseData && exportConfig[1].checked ? (
+              <a styleName="action-export-a" href={baseData} download={fileName}>
+                <img styleName="action-export-img" src={baseData} alt="PRE" />
+              </a>
+            ) : (
+              <img styleName="action-export-img" src={baseData} alt="PRE" />
+            )}
+
+            <div styleName="actions-export-config">
+              <h3>导出配置</h3>
+              <div styleName="actions-export-config-list">
+                {exportConfig.map((ele, index) => {
+                  return (
+                    <p key={index}>
+                      <input
+                        type="checkbox"
+                        name=""
+                        value={index}
+                        checked={ele.checked}
+                        onChange={() => onChangeConfig(index)}
+                      />
+                      <span>{ele.content}</span>
+                    </p>
+                  );
+                })}
+
+                <p>注: 导出说明</p>
+              </div>
+            </div>
+          </div>
+        </TaskModal.Dialog>
       )}
     </div>
   );

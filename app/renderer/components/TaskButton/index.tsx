@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import classnames from 'classnames';
+import { useThemeActionHooks } from '@src/hooks';
 import './index.less';
 
 export interface Button {
@@ -39,6 +40,7 @@ export interface Button {
    */
   border?: boolean;
 }
+
 function TaskButton({
   size = 'small',
   style,
@@ -49,11 +51,14 @@ function TaskButton({
   onClick,
   border = true,
 }: Button) {
+  const [currentTheme] = useThemeActionHooks.useGetCurrentTheme();
+
   return (
     <div
       style={{
         ...style,
         width: width,
+        // backgroundColor: currentTheme?.backgroundColor,
       }}
       className={className}
       styleName={classnames('es-button', {

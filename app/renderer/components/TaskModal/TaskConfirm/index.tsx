@@ -20,6 +20,7 @@ function TaskConfirm({
     cancelBtn = { isShow: true },
     submitBtn = { isShow: true },
   } = config;
+
   return (
     <div styleName="vis-mask">
       <div styleName="center">

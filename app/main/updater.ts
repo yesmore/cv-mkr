@@ -33,7 +33,6 @@ export default function checkVersionUpdate() {
 
   // 检查更新是否已开始时发出
   autoUpdater.on('checking-for-update', () => {
-    log.info('正在检查更新');
     // dialog.showMessageBox({
     //   title: '开始检查更新',
     //   message: 'Starting update check...',
@@ -61,7 +60,7 @@ export default function checkVersionUpdate() {
 
   // 检测没有可用更新时发出
   autoUpdater.on('update-not-available', (info) => {
-    log.info('当前为最新版本');
+    // log.info('当前为最新版本');
   });
 
   // autoUpdater.on('download-progress', (progressObj) => {

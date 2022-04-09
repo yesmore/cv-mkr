@@ -34,7 +34,7 @@ fileAction
 const createThemeConfigJson = () => {
   const initData = {
     name: '主题配置表',
-    currentTheme: { id: 'green', fontColor: '#ffffff', backgroundColor: '#416f5b' },
+    currentTheme: { id: 'dark', fontColor: '#ffffff', backgroundColor: '#416f5b' },
     themeList: [
       { id: 'dark', fontColor: '#ffffff', backgroundColor: '#27292c' },
       { id: 'blue', fontColor: '#ffffff', backgroundColor: '#35495e' },
@@ -42,16 +42,14 @@ const createThemeConfigJson = () => {
       { id: 'purple', fontColor: '#ffffff', backgroundColor: '#54546c' },
       { id: 'princess', fontColor: '#ffffff', backgroundColor: '#945454' },
     ],
-  }
-  
-  fileAction?.write(
-    `${appConfigPath}/theme.config.json`, JSON.stringify(initData), 'utf-8'
-  );
+  };
+
+  fileAction?.write(`${appConfigPath}/theme.config.json`, JSON.stringify(initData), 'utf-8');
 };
 
 // 创建默认 global.config.json
 const createGlobalConfigJson = () => {
-  const initData = { name: '全局配置表', resumeSavePath: '' }
+  const initData = { name: '全局配置表', resumeSavePath: '', latestExportFileName: '' };
   fileAction?.write(`${appConfigPath}/global.config.json`, JSON.stringify(initData), 'utf8');
 };
 

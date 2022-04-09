@@ -1,25 +1,37 @@
 /**
  * @desc 在校经历
- * @author pengdaokuan
+ * @author yesmore
  */
-import './index.less';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import './index.less';
 
 function Post() {
+  const schoolExperience: TSResume.SchoolExperience[] = useSelector(
+    (state: any) => state.resumeModel.schoolExperience
+  );
+
   return (
     <div styleName="content">
       <p styleName="label">在校经历 Post</p>
       <ul styleName="list">
-        <li styleName="flex">
-          <div styleName="left">
-            <p>2019.09-2021.09</p>
-            <p>资源部部长</p>
-          </div>
-          <div styleName="right">
-            <p>青年志愿者协会</p>
-            <p>计划、组织、协调各年级学生参加志愿活动｜校外社区志愿者活动｜校外社区志愿者活动</p>
-          </div>
-        </li>
+        {!!schoolExperience?.length &&
+          schoolExperience?.map((experience: TSResume.SchoolExperience, index: number) => {
+            return (
+              <li styleName="flex" key={index}>
+                <div styleName="left">
+                  <p>
+                    {experience?.beginTime}-{experience?.endTime}
+                  </p>
+                  <p>{experience?.post}</p>
+                </div>
+                <div styleName="right">
+                  <p>{experience?.department}</p>
+                  <p>{experience?.content}</p>
+                </div>
+              </li>
+            );
+          })}
       </ul>
     </div>
   );

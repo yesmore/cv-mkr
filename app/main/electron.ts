@@ -28,8 +28,8 @@ function createWindow() {
     title: 'CV MKr v' + PKG.version,
     icon: '../../assets/icon.ico',
     resizable: isDev(),
+    autoHideMenuBar: !isDev(),
     // frame: false,
-    // autoHideMenuBar: true,
     // useContentSize: true,
     // center: true, // 是否出现在屏幕居中的位置
     // backgroundColor: '#3f3c37', // 背景色，用于transparent和frameless窗口

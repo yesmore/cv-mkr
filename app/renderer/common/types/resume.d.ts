@@ -48,6 +48,10 @@ declare namespace TSResume {
      * @description 政治面貌
      */
     political?: string;
+    /**
+     * @description 爱好
+     */
+    hobby?: string;
   }
 
   /**

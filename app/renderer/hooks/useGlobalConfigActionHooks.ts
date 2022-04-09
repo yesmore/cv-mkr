@@ -40,6 +40,7 @@ export function useUpdateGlobalConfigFile() {
   return (updateKey: string, updateValues: any, callback?: () => void) => {
     getUserStoreDataPath().then((appPath: string) => {
       const jsonPath = path.join(appPath, 'config/global.config.json');
+
       readGlobalConfigFile().then((values: { [key: string]: any }) => {
         if (values && !!Object.keys(values).length) {
           const nextConfigContent = {

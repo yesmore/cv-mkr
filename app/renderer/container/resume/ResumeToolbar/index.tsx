@@ -121,7 +121,6 @@ function ResumeToolbar() {
             </div>
           </div>
         )}
-
         {/* 未填写 */}
         {!!unAddToolbarList.length && (
           <div styleName="module">

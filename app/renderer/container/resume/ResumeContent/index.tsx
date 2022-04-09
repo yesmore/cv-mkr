@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import * as UseTemplateList from './UseTemplate';
+import * as UseTemplateList from '@src/container/templates';
 import TaskScrollBox from '@src/components/TaskScrollBox';
 import Messager, { MESSAGE_EVENT_NAME_MAPS } from '@common/messager';
 import { RESUME_TOOLBAR_MAPS } from '@common/constants';
