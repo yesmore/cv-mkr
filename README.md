@@ -1,12 +1,14 @@
 <p align="center">
 	<img width='231px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-logo2.png' alt='CV MKr'/>
+    <p align="center">🎨简历定制 & 一键导出</p>
 </p>
 <div style='display:none;justify-content:center;' align="center">
     <img src="https://img.shields.io/github/downloads/yesmore/cv-mkr/total.svg?style=flat-square">
     <img src="https://img.shields.io/github/stars/yesmore/cv-mkr.svg?logo=github&style=flat-square" alt="star"/>
 	<img src="https://img.shields.io/github/license/yesmore/cv-mkr?style=flat-square" alt="GPL"/>
 </div>
-<p align="center">🎨简历定制 & 一键导出</p>
+
+
 
 ![Home](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-home.png)
 
@@ -14,7 +16,7 @@
 
 ## 应用简介
 
-`CV MKr` 是一款使用 Electron 开发的桌面应用软件，可以帮助您快速生成**简历**（内置模板）。
+`CV MKr` 是一款使用 Electron + React 开发的桌面应用软件，可以帮助您快速生成**简历**（内置模板）。
 
 ## 功能特性
 
@@ -25,26 +27,21 @@
 - 快速导入历史数据、主题更换、自动更新客户端
 - **无印** (**水印**) **良品**！
 
-#### 适用平台：
-
-#### 跨平台：
-
-- Windows 10/11 
-- Mac (未测试)
-- Linux (未测试)
-
 #### 未来计划
 
 - 支持在线预览简历
-
-
+- 跨平台（Mac、Linux）
 
 ## 下载软件
 
-Windows点击这里[下载最新版](https://github.com/yesmore/cv-mkr/releases).
+Windows: [最新版](https://github.com/yesmore/cv-mkr/releases).
 
 - 点击最新版本下载其**安装包**（ `exe` 文件）手动安装即可，如 [CVMKr-Setup-0.x.x.exe](https://github.com/yesmore/cv-mkr/releases/download/v0.2.12/CVMKr-Setup-0.2.12.exe)；
 - 或者点击 `msi` 文件无需安装包，下载即用，如 [CVMKr-0.x.x.msi](https://github.com/yesmore/cv-mkr/releases/download/v0.2.12/CVMKr-0.2.12.msi)
+
+Mac: 开发中
+
+Linux: 开发中
 
 ## 使用方法
 
@@ -103,7 +100,7 @@ $ yarn start:main
 
 ## 参与贡献
 
-本项目支持共建模板开发，完善此应用生态。如何参与[模板开发]()？
+本项目支持共建模板开发，完善此应用生态。关于如何参与模板开发，请参考 [#6 Participation and contribution](https://github.com/yesmore/cv-mkr/issues/6) .
 
 ## 开发文档
 
@@ -111,4 +108,4 @@ $ yarn start:main
 
 ## Licence
 
-CV MKr is open source software licensed as [GPL](LICENSE)
+CV MKr is open source software licensed as [GPL](LICENSE).

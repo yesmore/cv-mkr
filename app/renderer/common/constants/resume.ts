@@ -34,7 +34,7 @@ const RESUME_TOOLBAR_LIST: TSResume.SliderItem[] = [
     key: RESUME_TOOLBAR_MAPS.contact,
     name: '联系方式',
     summary: '少侠，请留下你的联系方式',
-    require: false,
+    require: true,
   },
   {
     key: RESUME_TOOLBAR_MAPS.workPrefer,

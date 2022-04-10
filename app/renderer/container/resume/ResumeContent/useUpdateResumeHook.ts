@@ -101,7 +101,7 @@ function useUpdateWorkHook() {
   return <T>(stateKey: string, stateValue: T, setAll: boolean = false) => {
     let cityList = work?.cityList ? [...work.cityList] : [];
     if (stateKey === 'city') {
-      cityList = (stateValue as any).split('｜');
+      cityList = (stateValue as any).split('|');
     }
     dispatch({
       type: 'resumeModel/setStore',
@@ -126,7 +126,7 @@ function useUpdateEvaluationHook() {
   const dispatch = useDispatch();
 
   return <T>(stateKey: string, stateValue: T) => {
-    let evaluationList = stateValue ? (stateValue as any).split('｜') : [];
+    let evaluationList = stateValue ? (stateValue as any).split('|') : [];
     dispatch({
       type: 'resumeModel/setStoreList',
       payload: [
@@ -166,7 +166,7 @@ function useUpdateHobbyHook() {
 function useUpdateCertificateHook() {
   const dispatch = useDispatch();
   return <T>(stateKey: string, stateValue: T) => {
-    let certificateList = stateValue ? (stateValue as any).split('｜') : [];
+    let certificateList = stateValue ? (stateValue as any).split('|') : [];
     dispatch({
       type: 'resumeModel/setStoreList',
       payload: [
@@ -189,7 +189,7 @@ function useUpdateCertificateHook() {
 function useUpdateSkillHook() {
   const dispatch = useDispatch();
   return <T>(stateKey: string, stateValue: T) => {
-    let skillList = stateValue ? (stateValue as any).split('｜') : [];
+    let skillList = stateValue ? (stateValue as any).split('|') : [];
     dispatch({
       type: 'resumeModel/setStoreList',
       payload: [
@@ -213,7 +213,7 @@ function useUpdateProjectExperience() {
   const dispatch = useDispatch();
   return <T>(stateKey: string, stateValue: T) => {
     let newList = (stateValue as any)?.map((s: AdapterExperienceType) => {
-      let parseContent = s.content ? s.content.split('｜') : [];
+      let parseContent = s.content ? s.content.split('|') : [];
       return {
         ...s,
         projectName: s?.title,
@@ -237,7 +237,7 @@ function useUpdateSchoolExperience() {
   const dispatch = useDispatch();
   return <T>(stateKey: string, stateValue: T, setAll: boolean = false) => {
     let newList = (stateValue as any)?.map((s: AdapterExperienceType) => {
-      let parseContent = s.content ? s.content.split('｜') : [];
+      let parseContent = s.content ? s.content.split('|') : [];
       return {
         ...s,
         department: s?.title,
@@ -261,7 +261,7 @@ function useUpdateWorkExperience() {
   const dispatch = useDispatch();
   return <T>(stateKey: string, stateValue: T) => {
     let newList = (stateValue as any)?.map((s: AdapterExperienceType) => {
-      let parseContent = s.content ? s.content.split('｜') : [];
+      let parseContent = s.content ? s.content.split('|') : [];
       return {
         ...s,
         department: s?.title,

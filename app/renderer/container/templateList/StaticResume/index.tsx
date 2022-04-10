@@ -10,7 +10,7 @@ import Footer from '../Footer';
 import './index.less';
 
 // 1. 合法且存在的简历模版，因为我们存在两个模版封面，但只有一个模版组件
-const VALID_TEMPLATE = [0];
+const VALID_TEMPLATE = [0, 1];
 
 function StaticResume() {
   const HEADER_HEIGHT = 0; // 距离头部距离
@@ -29,9 +29,11 @@ function StaticResume() {
         {isValidTemplate && isIncludeTemplate && (
           <>
             {selectTemplate.templateIndex === 0 && <TemplateList.TemplateOne />}
+            {selectTemplate.templateIndex === 1 && <TemplateList.TemplateTwo />}
             <Footer />
           </>
         )}
+
         {/* 3. 缺省页说明 */}
         {isValidTemplate && !isIncludeTemplate && (
           <LackDesc label="暂未开发此模版，欢迎点击下方按钮进行模版贡献" />
