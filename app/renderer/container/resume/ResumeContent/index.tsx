@@ -60,6 +60,10 @@ function ResumeContent() {
       {routerParams?.templateId && Number(routerParams?.templateIndex) === 0 && (
         <UseTemplateList.TemplateOne />
       )}
+      {routerParams?.templateId && Number(routerParams?.templateIndex) === 1 && (
+        <UseTemplateList.TemplateTwo />
+      )}
+
       {showFormModal && (
         <>
           {formName === RESUME_TOOLBAR_MAPS.certificate && <CertificateForm onClose={onClose} />}
