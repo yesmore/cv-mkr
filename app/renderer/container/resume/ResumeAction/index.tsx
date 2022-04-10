@@ -1,7 +1,7 @@
 /**
  * @description 制作简历-操作区
  */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import {
@@ -12,6 +12,7 @@ import {
 } from '@src/hooks';
 import TaskButton from '@src/components/TaskButton';
 import TaskModal from '@src/components/TaskModal';
+import TaskScrollBox from '@src/components/TaskScrollBox';
 import {
   compilePath,
   toPrintPdf,
@@ -27,6 +28,7 @@ import { dialog } from 'electron';
 function ResumeAction() {
   const history = useHistory();
   const routerParams = useParams<{ fromPath: string; templateId: string; templateIndex: string }>();
+  const [height, setHeight] = useState(0);
   const [baseData, setbaseData] = useState('');
   const [PDFInstence, setPDFInstence] = useState();
   const [exportConfig, setExportConfig] = useState([
@@ -45,6 +47,10 @@ function ResumeAction() {
   const updateGlobalConfigFile = useUpdateGlobalConfigFile();
   const [currentTheme] = useThemeActionHooks.useGetCurrentTheme();
   const { ref, componentVisible, setComponentVisible } = useClickAway(false);
+
+  useEffect(() => {
+    if (document.body && document.body.clientHeight > 0) setHeight(document.body.clientHeight);
+  }, [document.body]);
 
   // 返回首页
   const onBack = () => {
@@ -85,6 +91,8 @@ function ResumeAction() {
       PDFInstence?.save(fileName + '.pdf');
     }
     // TODO
+    if (exportConfig[1].checked) {
+    }
     if (exportConfig[2].checked) {
     }
 
@@ -170,13 +178,15 @@ function ResumeAction() {
           }}
         >
           <div styleName="actions-pre-export">
-            {baseData && exportConfig[1].checked ? (
-              <a styleName="action-export-a" href={baseData} download={fileName}>
+            <TaskScrollBox maxHeight={height / 1.4}>
+              {baseData && exportConfig[1].checked ? (
+                <a styleName="action-export-a" href={baseData} download={fileName}>
+                  <img styleName="action-export-img" src={baseData} alt="PRE" />
+                </a>
+              ) : (
                 <img styleName="action-export-img" src={baseData} alt="PRE" />
-              </a>
-            ) : (
-              <img styleName="action-export-img" src={baseData} alt="PRE" />
-            )}
+              )}
+            </TaskScrollBox>
 
             <div styleName="actions-export-config">
               <h3>导出配置</h3>

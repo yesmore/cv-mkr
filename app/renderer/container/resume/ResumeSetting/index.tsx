@@ -38,11 +38,10 @@ function ResumeSetting() {
 
   return (
     <div styleName="settings">
-      <span>上次导出: </span>
-      <TaskButton size="big" onClick={() => onUseLatestState('*')}>
-        {latestExportFileName.slice(0, 10) || '暂无导出记录'}
+      <TaskButton styleName="settings-btn" size="small" onClick={() => onUseLatestState('*')}>
+        上次导出: {latestExportFileName.slice(0, 10) || '暂无导出记录'}
+        <span styleName="settings-pop-info">{latestExportFileName ? '🎨点击使用' : ''}</span>
       </TaskButton>
-      <span styleName="settings-pop-info">{latestExportFileName ? '🎨可用' : ''}</span>
     </div>
   );
 }
