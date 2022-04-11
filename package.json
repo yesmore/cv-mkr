@@ -49,8 +49,7 @@
       "category": "public.app-category.productivity"
     },
     "dmg": {
-      "contents": [
-        {
+      "contents": [{
           "x": 130,
           "y": 220
         },
@@ -74,15 +73,13 @@
       "allowToChangeInstallationDirectory": true,
       "installerIcon": "dist/icons/icon.ico"
     },
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "yesmore",
-        "repo": "cv-mkr",
-        "private": true,
-        "releaseType": "release"
-      }
-    ]
+    "publish": [{
+      "provider": "github",
+      "owner": "yesmore",
+      "repo": "cv-mkr",
+      "private": true,
+      "releaseType": "release"
+    }]
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",

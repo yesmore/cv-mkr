@@ -1,5 +1,5 @@
 import path from 'path';
-import { dialog } from 'electron';
+import { dialog, shell } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import { isDev } from './electron';
@@ -45,15 +45,20 @@ export default function checkVersionUpdate() {
       .showMessageBox({
         type: 'info',
         title: '检测到更新',
-        message: '新版本已发布，是否现在更新?',
-        detail: '新版本号: ' + info.version + ', 此操作会覆盖当前应用程序',
-        buttons: ['立即更新', '取消'],
+        message: '新版本已发布，是否现在更新? ',
+        detail:
+          '新版本号: ' +
+          info.version +
+          ', 此操作会覆盖当前应用程序。\n注意：当前自动更新下载过慢，可能导致更新失败，建议前往官网手动更新，感谢您的理解与支持。',
+        buttons: ['立即更新', '官网下载', 'cancel'],
         defaultId: 0,
       })
       .then((res) => {
-        autoUpdater.downloadUpdate();
-        // if (res.response == 0) {
-        // }
+        if (res.response === 0) {
+          autoUpdater.downloadUpdate();
+        } else if (res.response === 1) {
+          shell.openExternal('https://cv-mkr.vercel.app');
+        }
       });
     // autoUpdater.downloadUpdate();
   });
