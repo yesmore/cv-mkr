@@ -27,12 +27,12 @@ let initState = {
   },
 
   skill:
-    'H5：熟悉 DivCSS 布局、CSS 动画，原生 JavaScript开发（DOM、BOM），掌握css预处理器 Less、Sass； 移动端：熟悉 px、em、rem 特性及使用场景，以及通过媒体查询、Flex编写自适应网站；框架：熟悉前端渐进式框架 Vue.js 全家桶，掌握小程序（微信原生、uni-app、Taro）开发；了解 React 框架开发；网络技术：了解http协议，熟悉 Axios、socket.io(websocket) 前后端数据交互技术，熟悉 Nodejs 开发网站接口和客户端工具，如脚手架开发。工程化与前端模块化：掌握 Webpack、Vite 特性，了解 CommonJS/CMD/AMD/ES6 的区别；掌握代码托管工具 Git 管理项目，掌握包管理器 npm、yarn 使用。UI库：熟悉使用 Element UI、Vuetify、Vant、AntD 等流行 Ui 库开发网站',
+    'H5：熟悉 DivCSS 布局、CSS 动画，原生 JavaScript开发（DOM、BOM），掌握css预处理器 Less、Sass；| 移动端：熟悉 px、em、rem 特性及使用场景，以及通过媒体查询、Flex编写自适应网站；| 框架：熟悉前端渐进式框架 Vue.js 全家桶，掌握小程序（微信原生、uni-app、Taro）开发；了解 React 框架开发；| 网络技术：了解http协议，熟悉 Axios、socket.io(websocket) | 前后端数据交互技术，熟悉 Nodejs 开发网站接口和客户端工具，如脚手架开发; | 工程化与前端模块化：掌握 Webpack、Vite 特性，了解 CommonJS/CMD/AMD/ES6 的区别；| 掌握代码托管工具 Git 管理项目，掌握包管理器 npm、yarn 使用。| UI库：熟悉使用 Element UI、Vuetify、Vant、AntD 等流行 Ui 库开发网站; | 服务端语言：了解 Node.js 开发网站接口和客户端工具，如脚手架开发',
   skillList: [
     'H5：熟悉 DivCSS 布局、CSS 动画，原生 JavaScript开发（DOM、BOM），掌握css预处理器 Less、Sass；',
     '移动端：熟悉 px、em、rem 特性及使用场景，以及通过媒体查询、Flex编写自适应网站',
     '框架：熟悉前端渐进式框架 Vue.js 全家桶，掌握小程序（微信原生、uni-app、Taro）开发；了解 React 框架开发',
-    '网络技术：了解http协议，熟悉 Axios、socket.io(websocket) 前后端数据交互技术，熟悉 Nodejs 开发网站接口和客户端工具，如脚手架开发',
+    '网络技术：了解http协议，熟悉 Axios、socket.io(websocket) 前后端数据交互技术',
     '工程化与前端模块化：掌握 Webpack、Vite 特性，了解 CommonJS/CMD/AMD/ES6 的区别',
     '掌握代码托管工具 Git 管理项目，掌握包管理器 npm、yarn 使用',
     'UI库：熟悉使用 Element UI、Vuetify、Vant、AntD 等流行 Ui 库开发网站',

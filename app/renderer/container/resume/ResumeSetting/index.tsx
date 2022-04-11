@@ -9,6 +9,7 @@ import './index.less';
 function ResumeSetting() {
   const [latestExportFileName, setLatestExportFileName] = useState('');
   const [resumeSavePath, setResumeSavePath] = useState('');
+  const [isShowSettingInfo, setIsShowSettingInfo] = useState(false);
   const initState = useSelector((state: any) => state.resumeModel);
   const readAppConfigFile = useReadGlobalConfigFile();
   const updateResumeHook = useUpdateResumeHook();
@@ -38,9 +39,20 @@ function ResumeSetting() {
 
   return (
     <div styleName="settings">
-      <TaskButton styleName="settings-btn" size="small" onClick={() => onUseLatestState('*')}>
-        上次导出: {latestExportFileName.slice(0, 10) || '暂无导出记录'}
-        <span styleName="settings-pop-info">{latestExportFileName ? '🎨点击使用' : ''}</span>
+      <TaskButton
+        styleName="settings-btn"
+        size="small"
+        onClick={() => onUseLatestState('*')}
+        onMouseEnter={() => setIsShowSettingInfo(true)}
+        onMouseLeave={() => setIsShowSettingInfo(false)}
+      >
+        {!isShowSettingInfo &&
+          ('上次导出:' + latestExportFileName.slice(0, 10).replaceAll('_', '.') || '暂无导出记录')}
+
+        {isShowSettingInfo && (latestExportFileName ? '🎨点击使用 (慎)' : '暂无导出记录')}
+      </TaskButton>
+      <TaskButton styleName="settings-about" onClick={() => onUseLatestState('*')}>
+        应用设置
       </TaskButton>
     </div>
   );

@@ -36,6 +36,14 @@ export interface Button {
    */
   onClick?: Function;
   /**
+   * @description 移入事件
+   */
+  onMouseEnter?: Function;
+  /**
+   * @description 移出事件
+   */
+  onMouseLeave?: Function;
+  /**
    * @description 是否显示边框
    */
   border?: boolean;
@@ -49,6 +57,8 @@ function TaskButton({
   disabled,
   className,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   border = true,
 }: Button) {
   const [currentTheme] = useThemeActionHooks.useGetCurrentTheme();
@@ -68,6 +78,12 @@ function TaskButton({
       })}
       onClick={() => {
         onClick && onClick();
+      }}
+      onMouseEnter={() => {
+        onMouseEnter && onMouseEnter();
+      }}
+      onMouseLeave={() => {
+        onMouseLeave && onMouseLeave();
       }}
     >
       {children}

@@ -1,12 +1,13 @@
 <p align="center">
 	<img width='231px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-logo2.png' alt='CV MKr'/>
-    <p align="center">🎨简历定制 & 一键导出</p>
 </p>
 <div style='display:none;justify-content:center;' align="center">
     <img src="https://img.shields.io/github/downloads/yesmore/cv-mkr/total.svg?style=flat-square">
     <img src="https://img.shields.io/github/stars/yesmore/cv-mkr.svg?logo=github&style=flat-square" alt="star"/>
 	<img src="https://img.shields.io/github/license/yesmore/cv-mkr?style=flat-square" alt="GPL"/>
+    <p align="center">🎨简历定制 & 一键导出</p>
 </div>
+
 
 
 
@@ -22,8 +23,8 @@
 
 #### 特点：
 
-- 多种简历模板选择 
-- 一键导出PDF、图片、HTML
+- 多种简历模板选择
+- 一键导出 PDF、图片、HTML
 - 快速导入历史数据、主题更换、自动更新客户端
 - **无印** (**水印**) **良品**！
 
@@ -32,9 +33,9 @@
 - 支持在线预览简历
 - 跨平台（Mac、Linux）
 
-## 下载软件
+## 下载软件<img align='right' src="https://img.shields.io/github/downloads/yesmore/cv-mkr/total.svg?style=flat-square">
 
-Windows: [最新版](https://github.com/yesmore/cv-mkr/releases).
+Windows 安装: [最新版](https://github.com/yesmore/cv-mkr/releases).
 
 - 点击最新版本下载其**安装包**（ `exe` 文件）手动安装即可，如 [CVMKr-Setup-0.x.x.exe](https://github.com/yesmore/cv-mkr/releases/download/v0.2.12/CVMKr-Setup-0.2.12.exe)；
 - 或者点击 `msi` 文件无需安装包，下载即用，如 [CVMKr-0.x.x.msi](https://github.com/yesmore/cv-mkr/releases/download/v0.2.12/CVMKr-0.2.12.msi)
@@ -61,7 +62,7 @@ Linux: 开发中
 
 单击 “已添加” 工具栏项，会弹出对话框填写信息；
 
-单击 “未添加” 工具栏项，会将该项加入 “已添加” 列表中，继续点击该项，即可弹出对话框填写信息。 
+单击 “未添加” 工具栏项，会将该项加入 “已添加” 列表中，继续点击该项，即可弹出对话框填写信息。
 
 （4）单击简历编辑页右上角 “模板” 按钮，进入模板列表页面：
 
@@ -69,7 +70,7 @@ Linux: 开发中
 
 ![Tpl](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-tpl1.png)
 
-（5）单击简历编辑页右上角 “导出” 按钮，即可导出为PDF / 图片 / HTML：
+（5）单击简历编辑页右上角 “导出” 按钮，即可导出为 PDF / 图片 / HTML：
 
 ![PDF](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-export1.png)
 
