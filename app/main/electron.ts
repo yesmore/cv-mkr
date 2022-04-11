@@ -3,6 +3,7 @@
  */
 import path from 'path';
 import { app, BrowserWindow, ipcMain, dialog, Menu } from 'electron';
+import _ from 'lodash';
 import customMenu from './customMenu';
 import checkVersionUpdate from './updater';
 import PKG from '../../package.json';
@@ -110,6 +111,20 @@ app.on('window-all-closed', () => {
 ipcMain.on('get-root-path', (event, arg) => {
   // fix: 当使用 electron-builder 打包时，会出现路径错误 ROOT_PATH -> __dirname
   event.reply('reply-root-path', isDev() ? ROOT_PATH : __dirname);
+});
+
+// 监听打开设置窗口
+ipcMain.on('open-setting-window', (event, arg) => {
+  const wins: MyBrowserWindow[] = BrowserWindow.getAllWindows();
+  const currentWindow = _.find(wins, (w) => w.uid === 'settingWindow');
+  if (currentWindow) {
+    if (!currentWindow.isVisible()) {
+      currentWindow.show();
+    }
+    if (currentWindow.isMinimized()) {
+      currentWindow.restore();
+    }
+  }
 });
 
 // 应用设置，保存自定义存储路径

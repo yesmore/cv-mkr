@@ -1,3 +1,4 @@
+import { ipcRenderer } from 'electron';
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useReadGlobalConfigFile } from '@src/hooks';
@@ -37,6 +38,10 @@ function ResumeSetting() {
     }
   };
 
+  const onOpenSettings = () => {
+    ipcRenderer.send('open-setting-window', '');
+  };
+
   return (
     <div styleName="settings">
       <TaskButton
@@ -49,9 +54,9 @@ function ResumeSetting() {
         {!isShowSettingInfo &&
           ('上次导出:' + latestExportFileName.slice(0, 10).replaceAll('_', '.') || '暂无导出记录')}
 
-        {isShowSettingInfo && (latestExportFileName ? '🎨点击使用 (慎)' : '暂无导出记录')}
+        {isShowSettingInfo && (latestExportFileName ? '🎨点击使用 (不可撤回)' : '暂无导出记录')}
       </TaskButton>
-      <TaskButton styleName="settings-about" onClick={() => onUseLatestState('*')}>
+      <TaskButton styleName="settings-about" onClick={() => onOpenSettings()}>
         应用设置
       </TaskButton>
     </div>

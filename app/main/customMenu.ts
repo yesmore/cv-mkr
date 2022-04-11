@@ -1,5 +1,4 @@
-import _ from 'lodash';
-import { MyBrowserWindow, isDev } from './electron';
+import { isDev } from './electron';
 import { MenuItemConstructorOptions, shell, app, MenuItem, BrowserWindow } from 'electron';
 
 const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
@@ -89,26 +88,26 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
       },
     ],
   },
-  {
-    label: '设置',
-    submenu: [
-      {
-        label: '缓存路径',
-        click: () => {
-          const wins: MyBrowserWindow[] = BrowserWindow.getAllWindows();
-          const currentWindow = _.find(wins, (w) => w.uid === 'settingWindow');
-          if (currentWindow) {
-            if (!currentWindow.isVisible()) {
-              currentWindow.show();
-            }
-            if (currentWindow.isMinimized()) {
-              currentWindow.restore();
-            }
-          }
-        },
-      },
-    ],
-  },
+  // {
+  //   label: '设置',
+  //   submenu: [
+  //     {
+  //       label: '缓存路径',
+  //       click: () => {
+  //         const wins: MyBrowserWindow[] = BrowserWindow.getAllWindows();
+  //         const currentWindow = _.find(wins, (w) => w.uid === 'settingWindow');
+  //         if (currentWindow) {
+  //           if (!currentWindow.isVisible()) {
+  //             currentWindow.show();
+  //           }
+  //           if (currentWindow.isMinimized()) {
+  //             currentWindow.restore();
+  //           }
+  //         }
+  //       },
+  //     },
+  //   ],
+  // },
 ];
 
 if (isDev()) {

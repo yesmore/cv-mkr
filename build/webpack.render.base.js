@@ -23,6 +23,7 @@ module.exports = {
       '@assets': path.join(__dirname, '../', 'assets/'),
       '@src': path.join(__dirname, '../', 'app/renderer'),
       '@common': path.join(__dirname, '../', 'app/renderer/common'),
+      '@main': path.join(__dirname, '../', 'app/main'),
     },
   },
   target: 'electron-renderer',
