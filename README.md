@@ -1,17 +1,19 @@
 <p align="center">
-	<img width='231px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-logo2.png' alt='CV MKr'/>
+	<img width='231px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-logo.png' alt='CV MKr'/>
 </p>
 <div style='display:none;justify-content:center;' align="center">
     <img src="https://img.shields.io/github/downloads/yesmore/cv-mkr/total.svg?style=flat-square">
     <img src="https://img.shields.io/github/stars/yesmore/cv-mkr.svg?logo=github&style=flat-square" alt="star"/>
 	<img src="https://img.shields.io/github/license/yesmore/cv-mkr?style=flat-square" alt="GPL"/>
     <p align="center">🎨简历定制 & 一键导出</p>
+    <p></p>
 </div>
 
 
 
 
-![Home](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-home.png)
+
+![Home](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-h.png)
 
 
 
