@@ -12,7 +12,7 @@ function Job() {
   const cityList = (work && work?.cityList) || [];
   return (
     <div styleName="container">
-      <p styleName="title">求职意向 Work</p>
+      <p styleName="title">求职意向</p>
       <ul styleName="content">
         {work?.job && <li>职位：{work?.job}</li>}
         {work?.city && cityList?.length > 0 && (

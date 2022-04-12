@@ -12,7 +12,7 @@ function Skill() {
 
   return (
     <div styleName="content">
-      <p styleName="label">技能证书 Skill</p>
+      <p styleName="label">专业技能</p>
       <ul styleName="skill">
         {skill &&
           skillList?.length > 0 &&

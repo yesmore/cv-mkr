@@ -12,7 +12,7 @@ function Certificate() {
 
   return (
     <div styleName="container">
-      <p styleName="title">荣誉奖励 Certificate</p>
+      <p styleName="title">荣誉奖励</p>
       <ul styleName="content">
         {certificate &&
           certificateList.length > 0 &&

@@ -13,7 +13,7 @@ function Post() {
 
   return (
     <div styleName="content">
-      <p styleName="label">在校经历 Post</p>
+      <p styleName="label">在校经历</p>
       <ul styleName="list">
         {!!schoolExperience?.length &&
           schoolExperience?.map((experience: TSResume.SchoolExperience, index: number) => {

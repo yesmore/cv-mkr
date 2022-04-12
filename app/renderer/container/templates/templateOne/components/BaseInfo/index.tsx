@@ -11,7 +11,7 @@ function BaseInfo() {
 
   return (
     <div styleName="container">
-      <p styleName="title">基本信息 Basic</p>
+      <p styleName="title">基本信息</p>
       <ul styleName="content">
         {base?.school && <li>院校：{base?.school}</li>}
         {base?.major && <li>专业：{base?.major}</li>}

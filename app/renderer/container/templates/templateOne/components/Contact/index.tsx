@@ -11,10 +11,15 @@ function Contact() {
 
   return (
     <div styleName="container">
-      <p styleName="title">联系方式 Contact</p>
+      <p styleName="title">联系方式</p>
       <ul styleName="content">
         {contact?.phone && <li>电话：{contact?.phone}</li>}
         {contact?.email && <li>邮箱：{contact?.email}</li>}
+        {contact?.blog && (
+          <li>
+            个人博客: <a href={contact?.blog}>{contact?.blog}</a>
+          </li>
+        )}
         {contact?.github && (
           <li>
             Github:{' '}

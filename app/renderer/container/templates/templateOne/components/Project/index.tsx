@@ -15,7 +15,7 @@ function Project() {
 
   return (
     <div styleName="content">
-      <p styleName="label">项目经历 Project</p>
+      <p styleName="label">项目经历</p>
       <ul styleName="list">
         {!!projectExperience?.length &&
           projectExperience?.map((experience: TSResume.ProjectExperience, index: number) => {
