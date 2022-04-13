@@ -103,19 +103,28 @@
             width: 40px;
             display: none;
             height: 20px;
+
             .edit {
               width: 16px;
               height: 16px;
               background: url('../../../../../assets/icon/edit.png') no-repeat;
               background-size: cover;
-              margin-right: 8px;
+              // margin-right: 8px;
             }
             .delete {
               width: 16px;
               height: 16px;
               background: url('../../../../../assets/icon/delete.png') no-repeat;
               background-size: cover;
+              margin-left: 8px;
+              opacity: 0.5;
+              transition: opacity 0.3s;
+
+              &:hover {
+                opacity: 1;
+              }
             }
+
             .add {
               width: 16px;
               height: 16px;

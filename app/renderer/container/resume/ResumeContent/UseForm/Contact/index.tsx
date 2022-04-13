@@ -92,6 +92,24 @@ function Contact({ onClose }: IProps) {
             />
           </div>
         </div>
+        <div styleName="flex">
+          <div styleName="left">
+            <span styleName="require" style={{ opacity: 0 }}>
+              *
+            </span>
+            博客 ：
+          </div>
+          <div styleName="right">
+            <TaskInput
+              onChange={(e) => {
+                updateResumeHook<string>('contact/blog', e.target.value);
+              }}
+              value={contact?.blog || ''}
+              placeholder="技术博客"
+              allowClear={true}
+            />
+          </div>
+        </div>
       </div>
     </TaskModal.Dialog>
   );

@@ -1,7 +1,7 @@
 let initState = {
   base: {
     avatar: '',
-    username: 'xxx',
+    username: '求offer！！！',
     area: '四川·成都',
     school: '成都信息工程大学',
     major: '通信工程',

@@ -104,8 +104,8 @@ function ResumeToolbar() {
                       {addSlider.require && <div styleName="tips">必填</div>}
                       {!addSlider.require && (
                         <div styleName="action">
-                          <i styleName="edit" onClick={(e: React.MouseEvent) => {}} />
-                          <i
+                          {/* <div styleName="edit" onClick={(e: React.MouseEvent) => {}} /> */}
+                          <div
                             styleName="delete"
                             onClick={(e: React.MouseEvent) => {
                               e.stopPropagation && e.stopPropagation();
