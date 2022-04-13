@@ -214,9 +214,11 @@ function useUpdateProjectExperience() {
   return <T>(stateKey: string, stateValue: T) => {
     let newList = (stateValue as any)?.map((s: AdapterExperienceType) => {
       let parseContent = s.content ? s.content.split('|') : [];
+      console.log('噢噢噢', s);
+
       return {
         ...s,
-        projectName: s?.title,
+        projectName: s?.projectName,
         parseContent,
       };
     });
