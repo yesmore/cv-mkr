@@ -21,9 +21,11 @@
     "build:render": "webpack --config ./build/webpack.render.prod.js",
     "build:dll": "webpack --config ./build/webpack.dll.prod.js",
     "build:icon": "electron-icon-builder --input=./assets/icon.png --output=dist --flatten",
-    "build": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn release",
+    "build:pro": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn release",
+    "build:dev": "yarn build:icon && yarn build:main && yarn build:dll && yarn build:render && yarn build:test",
     "release": "cross-env GH_TOKEN=%npm_config_GH_TOKEN% electron-builder -p always",
     "pack": "electron-builder --dir",
+    "build:test": "electron-builder",
     "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron"
   },
   "build": {
@@ -49,8 +51,7 @@
       "category": "public.app-category.productivity"
     },
     "dmg": {
-      "contents": [
-        {
+      "contents": [{
           "x": 130,
           "y": 220
         },
@@ -74,15 +75,13 @@
       "allowToChangeInstallationDirectory": true,
       "installerIcon": "dist/icons/icon.ico"
     },
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "yesmore",
-        "repo": "cv-mkr",
-        "private": true,
-        "releaseType": "release"
-      }
-    ]
+    "publish": [{
+      "provider": "github",
+      "owner": "yesmore",
+      "repo": "cv-mkr",
+      "private": true,
+      "releaseType": "release"
+    }]
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
