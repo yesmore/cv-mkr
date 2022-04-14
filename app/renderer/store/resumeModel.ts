@@ -14,7 +14,7 @@ let initState = {
     },
   },
   contact: {
-    phone: '12345678910',
+    phone: '+86 12345678910',
     email: '3224266014@qq.com',
     github: 'https://github.com/yesmore',
     juejin: '',
@@ -22,8 +22,8 @@ let initState = {
   },
   work: {
     job: '前端工程师',
-    city: '成都',
-    cityList: ['成都'],
+    city: '成都 | 杭州',
+    cityList: ['成都', '杭州'],
   },
 
   skill:
