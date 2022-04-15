@@ -28,7 +28,7 @@ export default function checkVersionUpdate() {
   autoUpdater.on('error', (error) => {
     log.info('检查更新出错');
     log.info(error);
-    dialog.showErrorBox('Error', error == null ? 'unknown' : (error.stack || error).toString());
+    // dialog.showErrorBox('Error', error == null ? 'unknown' : (error.stack || error).toString());
   });
 
   // 检查更新是否已开始时发出
