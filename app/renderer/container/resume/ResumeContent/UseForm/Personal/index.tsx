@@ -47,6 +47,40 @@ function Personal({ onClose }: IProps) {
 
         <div styleName="flex">
           <div styleName="left">
+            <span styleName="require">*</span>年 龄 ：
+          </div>
+          <div styleName="right">
+            <TaskInput
+              onChange={(e) => {
+                // 修改个人基本信息中的姓名字段数据
+                updateResumeHook('base/age', e.target?.value || '');
+              }}
+              value={base?.age || ''}
+              placeholder="请输入年龄"
+              allowClear={true}
+            />
+          </div>
+        </div>
+
+        <div styleName="flex">
+          <div styleName="left">
+            <span styleName="require">*</span>性 别 ：
+          </div>
+          <div styleName="right">
+            <TaskInput
+              onChange={(e) => {
+                // 修改个人基本信息中的姓名字段数据
+                updateResumeHook('base/gender', e.target?.value || '');
+              }}
+              value={base?.gender || ''}
+              placeholder="请输入性别"
+              allowClear={true}
+            />
+          </div>
+        </div>
+
+        <div styleName="flex">
+          <div styleName="left">
             <span styleName="require">*</span>籍 贯 ：
           </div>
           <div styleName="right">

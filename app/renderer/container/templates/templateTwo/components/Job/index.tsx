@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import { useSelector } from 'react-redux';
-import '../../../styles/template-one.less';
+import '../../../styles/template-two.less';
 import './index.less';
 
 function Job() {

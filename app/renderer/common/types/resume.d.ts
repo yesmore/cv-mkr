@@ -12,6 +12,14 @@ declare namespace TSResume {
      */
     username: string;
     /**
+     * @description 年龄
+     */
+    age: string;
+    /**
+     * @description 性别
+     */
+    gender: string;
+    /**
      * @description 地区
      */
     area?: string;

@@ -1,12 +1,14 @@
 let initState = {
   base: {
     avatar: '',
-    username: '求offer！！！',
+    username: '你的名字',
     area: '四川·成都',
     school: '成都信息工程大学',
     major: '通信工程',
     degree: '23届 本科',
     hometown: '四川',
+    age: '22',
+    gender: '男',
     hobby: 'coding、摄影、游戏',
     onSchoolTime: {
       beginTime: '2019.09',

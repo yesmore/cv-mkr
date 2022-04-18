@@ -22,6 +22,22 @@ function Project() {
             return (
               <li styleName="flex" key={index}>
                 <div styleName="left">
+                  <p>
+                    {experience?.projectName && !experience?.post && (
+                      <span>{experience?.projectName}</span>
+                    )}
+                    {!experience?.projectName && experience?.post && (
+                      <span>{experience?.post}</span>
+                    )}
+                    {experience?.projectName && experience?.post && (
+                      <span>
+                        {experience?.projectName} - {experience?.post}
+                      </span>
+                    )}
+                  </p>
+                </div>
+
+                <div styleName="right">
                   {(experience?.beginTime || experience?.endTime) && (
                     <p>
                       {experience?.beginTime && !experience?.endTime && (
@@ -37,22 +53,6 @@ function Project() {
                       )}
                     </p>
                   )}
-                </div>
-
-                <div styleName="right">
-                  <p>
-                    {experience?.projectName && !experience?.post && (
-                      <span>{experience?.projectName}</span>
-                    )}
-                    {!experience?.projectName && experience?.post && (
-                      <span>{experience?.post}</span>
-                    )}
-                    {experience?.projectName && experience?.post && (
-                      <span>
-                        {experience?.projectName} - {experience?.post}
-                      </span>
-                    )}
-                  </p>
                 </div>
 
                 <div styleName="text">

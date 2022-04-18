@@ -16,6 +16,8 @@ import Skill from './components/Skill';
 import Post from './components/Post';
 import Project from './components/Project';
 import Work from './components/Work';
+import WorkPrefer from './components/WorkPrefer';
+import Evaluation from './components/Evaluation';
 import './index.less';
 
 function TemplateOne() {
@@ -28,22 +30,16 @@ function TemplateOne() {
   return (
     <div styleName="a4-box">
       <div styleName="flex container" id="visPdf">
-        {/* 基本信息 */}
-        <div styleName="header">
-          {/* <div styleName="fillColor" /> */}
-          <div styleName="baseData">
-            {(resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.evaluation) || base?.username) && (
-              <Synopsis />
-            )}
-            <BaseInfo />
-            {/* {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.contact) && <Contact />} */}
-            {/* {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.workPrefer) && <Job />} */}
-            {/* {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.certificate) && <Certificate />} */}
-          </div>
-        </div>
         {/* 内容 */}
         <div styleName="center">
           <div styleName="listData">
+            {(resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.personal) || base?.username) && (
+              <Synopsis />
+            )}
+            {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.workPrefer) && <WorkPrefer />}
+            {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.evaluation) && <Evaluation />}
+            <BaseInfo />
+            {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.certificate) && <Certificate />}
             {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.skill) && <Skill />}
             {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.schoolExperience) && <Post />}
             {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.projectExperience) && <Project />}
