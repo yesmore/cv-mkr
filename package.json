@@ -12,7 +12,7 @@
   ],
   "license": "GPL-3.0",
   "config": {
-    "GH_TOKEN": "xxx"
+    "GH_TOKEN": ""
   },
   "scripts": {
     "start:main": "webpack --config ./build/webpack.main.dev.js && electron ./dist/electron.js",
@@ -51,8 +51,7 @@
       "category": "public.app-category.productivity"
     },
     "dmg": {
-      "contents": [
-        {
+      "contents": [{
           "x": 130,
           "y": 220
         },
@@ -76,15 +75,13 @@
       "allowToChangeInstallationDirectory": true,
       "installerIcon": "dist/icons/icon.ico"
     },
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "yesmore",
-        "repo": "cv-mkr",
-        "private": true,
-        "releaseType": "release"
-      }
-    ]
+    "publish": [{
+      "provider": "github",
+      "owner": "yesmore",
+      "repo": "cv-mkr",
+      "private": true,
+      "releaseType": "release"
+    }]
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
