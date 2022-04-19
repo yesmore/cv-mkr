@@ -6,7 +6,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RESUME_TOOLBAR_MAPS } from '@common/constants';
 
-// import Avatar from './components/Avatar';
 import BaseInfo from './components/BaseInfo';
 import Contact from './components/Contact';
 import Job from './components/Job';
