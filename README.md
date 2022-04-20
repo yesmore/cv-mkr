@@ -1,14 +1,16 @@
 <p align="center">
 	<img width='231px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-logo.png' alt='CV MKr'/>
 </p>
-<div style='display:none;justify-content:center;' align="center">
+<p align="center">🎨简历定制 & 一键导出</p>
+<div style='' align="center">
     <img src="https://img.shields.io/github/downloads/yesmore/cv-mkr/total.svg?style=flat-square">
     <img src="https://img.shields.io/github/stars/yesmore/cv-mkr.svg?logo=github&style=flat-square" alt="star"/>
 	<img src="https://img.shields.io/github/license/yesmore/cv-mkr?style=flat-square" alt="GPL"/>
-    <p align="center">🎨简历定制 & 一键导出</p>
-    <p></p>
 </div>
 
+
+
+---
 
 
 
@@ -36,7 +38,7 @@
 - 支持在线预览简历
 - 跨平台（Mac、Linux）
 
-## 下载软件<img align='right' src="https://img.shields.io/github/downloads/yesmore/cv-mkr/total.svg?style=flat-square">
+## 下载软件
 
 Windows 安装: [最新版](https://github.com/yesmore/cv-mkr/releases).
 
