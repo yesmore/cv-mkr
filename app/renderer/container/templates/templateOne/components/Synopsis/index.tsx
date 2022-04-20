@@ -15,7 +15,7 @@ function Synopsis() {
   return (
     <div styleName="content">
       {base?.username && <p styleName="name">{base?.username}</p>}
-      {work?.job && <p styleName="job">{work?.job}</p>}
+      {work?.job && <p styleName="job">求职意向: {work?.job}</p>}
       {evaluation && <p styleName="summary">{evaluationList?.join('，')}</p>}
     </div>
   );

@@ -13,6 +13,8 @@ function BaseInfo() {
     <div styleName="container">
       <p styleName="title">基本信息</p>
       <ul styleName="content">
+        {base?.gender && <li>性别：{base?.gender}</li>}
+        {base?.age && <li>年龄：{base?.age}</li>}
         {base?.school && <li>院校：{base?.school}</li>}
         {base?.major && <li>专业：{base?.major}</li>}
         {base?.degree && <li>学历：{base?.degree}</li>}

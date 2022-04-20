@@ -1,6 +1,6 @@
 {
   "name": "cv-mkr",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "author": "yesmore",
   "description": "一个简历生成器",
   "main": "./dist/electron.js",
@@ -12,7 +12,7 @@
   ],
   "license": "GPL-3.0",
   "config": {
-    "GH_TOKEN": "xxx"
+    "GH_TOKEN": ""
   },
   "scripts": {
     "start:main": "webpack --config ./build/webpack.main.dev.js && electron ./dist/electron.js",

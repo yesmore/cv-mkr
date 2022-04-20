@@ -34,7 +34,7 @@ fileAction
 const createThemeConfigJson = () => {
   const initData = {
     name: '主题配置表',
-    currentTheme: { id: 'dark', fontColor: '#ffffff', backgroundColor: '#416f5b' },
+    currentTheme: { id: 'dark', fontColor: '#ffffff', backgroundColor: '#27292c' },
     themeList: [
       { id: 'dark', fontColor: '#ffffff', backgroundColor: '#27292c' },
       { id: 'blue', fontColor: '#ffffff', backgroundColor: '#35495e' },

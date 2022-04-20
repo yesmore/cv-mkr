@@ -112,7 +112,7 @@ let initState = {
         '技术栈：Electron、React Hooks',
         '完成模块：① 简历数据录入、暂存与永久存储 (Redux、fs)；② 主题换肤 (通过配置文件jsonfile实现)；③导出简历模块 (html2canvas、JsPdf)',
         '项目难点：实现简历数据适配多个模板，通过 Redux 实现数据共享',
-        '项目成果：在 Github 开源并获得 下载量：200+。( 此简历即使用本项目生成 )',
+        '项目成果：在 Github 开源并获得 下载量：300+。( 此简历即使用本项目生成 )',
         '在线预览：https://cv-mkr.vercel.app',
       ],
       date: 1621145137865,
