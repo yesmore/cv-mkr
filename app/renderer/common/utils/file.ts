@@ -14,7 +14,7 @@ const fileAction = {
    * @param path 路径
    * @returns {Promise}
    */
-  write: (path: string, content: string): Promise<void> => {
+  write: (path: string, content: string, encode: string): Promise<void> => {
     return fsPromiseAPIs.writeFile(path, content, { encoding: 'utf8' });
   },
   /**
