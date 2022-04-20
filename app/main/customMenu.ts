@@ -1,4 +1,4 @@
-import { isDev } from './electron';
+import { isDev, MyBrowserWindow } from './electron';
 import { MenuItemConstructorOptions, shell, app, MenuItem, BrowserWindow } from 'electron';
 
 const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [

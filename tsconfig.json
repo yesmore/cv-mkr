@@ -7,6 +7,7 @@
     "sourceMap": true,
     "strict": true,
     "declaration": true,
+    "resolveJsonModule": true,
     "removeComments": true /* 编译结果把ts的注释移除掉 */,
     "esModuleInterop": true /* es6的模块化和非es6的模块化标准互通 */,
     "allowSyntheticDefaultImports": true,

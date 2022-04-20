@@ -5,13 +5,13 @@ import log from 'electron-log';
 import { isDev } from './electron';
 import PKG from '../../package.json';
 
-function sendStatusToWindow(text) {
-  log.info(text);
-  dialog.showMessageBox({
-    title: text,
-    message: text,
-  });
-}
+// function sendStatusToWindow(text: string) {
+//   log.info(text);
+//   dialog.showMessageBox({
+//     title: text,
+//     message: text,
+//   });
+// }
 
 export default function checkVersionUpdate() {
   autoUpdater.currentVersion = PKG.version;

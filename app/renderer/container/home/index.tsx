@@ -40,22 +40,28 @@ function Home() {
       <div styleName="container">
         <img src={Logo} alt="logo" styleName="logo" />
         <div styleName="tips">简历定制 & 一键导出</div>
-        <div styleName="theme">
-          <TaskTheme />
-        </div>
         <div styleName="action">
           <Button onClick={() => onRouterToLink()}>现在开始&nbsp;</Button>
+        </div>
+        <div styleName="theme">
+          <TaskTheme />
         </div>
 
         {/* { footer } */}
         <div styleName="copyright">
           <div styleName="footer">
+            
             <p styleName="copyright">
               Copyright © {new Date().getFullYear()} |{' '}
-              <span href={REPO} target="__blank" onClick={() => onOpenSRC()}>
-                Yesmore
+              <span styleName='yesmore' onClick={() => onOpenSRC()}>
+                Yesmore  
               </span>
+              
             </p>
+            <span styleName='you-need-know'> 
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              隐私政策
+            </span>
           </div>
         </div>
       </div>

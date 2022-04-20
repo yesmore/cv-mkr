@@ -8,16 +8,9 @@
 	<img src="https://img.shields.io/github/license/yesmore/cv-mkr?style=flat-square" alt="GPL"/>
 </div>
 
-
-
 ---
 
-
-
-
 ![Home](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-h.png)
-
-
 
 ## 应用简介
 
@@ -30,8 +23,8 @@
 - 多种简历模板选择
 - 一键导出 PDF、图片、HTML
 - 快速导入历史数据、主题更换、自动更新客户端
-- **无印** (**水印**) **良品**！
-- 个人数据仅存储本地
+- **无印良品**！
+- 数据仅存储本地, 尊重隐私
 
 #### 未来计划
 
@@ -40,14 +33,14 @@
 
 ## 下载软件
 
-Windows 安装: [最新版](https://github.com/yesmore/cv-mkr/releases).
+Windows 平台: [最新版](https://github.com/yesmore/cv-mkr/releases/latest).
 
-- 点击最新版本下载其**安装包**（ `exe` 文件）手动安装即可，如 [CVMKr-Setup-0.x.x.exe](https://github.com/yesmore/cv-mkr/releases/download/v0.2.12/CVMKr-Setup-0.2.12.exe)；
-- 或者点击 `msi` 文件无需安装包，下载即用，如 [CVMKr-0.x.x.msi](https://github.com/yesmore/cv-mkr/releases/download/v0.2.12/CVMKr-0.2.12.msi)
+- 点击最新版本下载其**安装包**（ `exe` 文件）手动安装即可，如 [CVMKr-Setup-0.x.x.exe]()；
+- 或者点击 `msi` 软件包，下载即用，如 [CVMKr-0.x.x.msi]()
 
-Mac: 开发中
+Mac 平台: 敬请期待.
 
-Linux: 开发中
+Linux 平台: 敬请期待.
 
 ## 使用方法
 
@@ -80,8 +73,6 @@ Linux: 开发中
 ![PDF](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-export1.png)
 
 > 导出文件名默认为 “姓名-电话-岗位.pdf”
-
-
 
 ## 开发者须知
 
