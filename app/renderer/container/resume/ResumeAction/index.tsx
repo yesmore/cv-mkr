@@ -78,7 +78,7 @@ function ResumeAction() {
 
   // 预览图片
   const onPreview = () => {
-    toPrintPdf(fileName).then((res) => {
+    toPrintPdf(fileName).then((res:any) => {
       setbaseData(res.tmpData);
       setComponentVisible(true);
       setPDFInstence(res.PDF);

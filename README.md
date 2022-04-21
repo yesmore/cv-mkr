@@ -10,11 +10,11 @@
 
 ---
 
-![Home](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-h.png)
+![Home](https://cdn.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-h.png)
 
 ## 应用简介
 
-`CV MKr` 是一款使用 Electron + React 开发的桌面应用软件，可以帮助您快速生成**简历**（内置模板）。
+`CV MKr` 是一款使用 Electron + React 开发的桌面应用软件，可以帮助您快速生成**简历**（适合技术人员的）。
 
 ## 功能特性
 
@@ -36,7 +36,7 @@
 Windows 平台: [最新版](https://github.com/yesmore/cv-mkr/releases/latest).
 
 - 点击最新版本下载其**安装包**（ `exe` 文件）手动安装即可，如 [CVMKr-Setup-0.x.x.exe]()；
-- 或者点击 `msi` 软件包，下载即用，如 [CVMKr-0.x.x.msi]()
+- 或者点击 `msi` 下载软件包，如 [CVMKr-0.x.x.msi]().
 
 Mac 平台: 敬请期待.
 
@@ -50,13 +50,13 @@ Linux 平台: 敬请期待.
 
 > 简历编辑页
 
-![resume](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-resume1.png)
+![resume](https://cdn.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-resume1.png)
 
 （3）点击左侧工具栏项进行信息填写：
 
 > 编辑对话框
 
-![](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-edit1.png)
+![](https://cdn.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-edit1.png)
 
 单击 “已添加” 工具栏项，会弹出对话框填写信息；
 
@@ -66,11 +66,11 @@ Linux 平台: 敬请期待.
 
 > 模板列表页
 
-![Tpl](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-tpl1.png)
+![Tpl](https://cdn.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-tpl1.png)
 
 （5）单击简历编辑页右上角 “导出” 按钮，即可导出为 PDF / 图片 / HTML：
 
-![PDF](https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-mkr-export1.png)
+![PDF](https://cdn.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-export1.png)
 
 > 导出文件名默认为 “姓名-电话-岗位.pdf”
 
