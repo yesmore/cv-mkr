@@ -26,7 +26,8 @@
     "release": "cross-env GH_TOKEN=%npm_config_GH_TOKEN% electron-builder -p always",
     "pack": "electron-builder --dir",
     "build:test": "electron-builder",
-    "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron"
+    "prepare": "yarn && yarn install:electron",
+    "install:electron": "ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ npm install electron"
   },
   "build": {
     "appId": "CVMKr.app.yesmore",
@@ -51,8 +52,7 @@
       "category": "public.app-category.productivity"
     },
     "dmg": {
-      "contents": [
-        {
+      "contents": [{
           "x": 130,
           "y": 220
         },
@@ -76,15 +76,13 @@
       "allowToChangeInstallationDirectory": true,
       "installerIcon": "dist/icons/icon.ico"
     },
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "yesmore",
-        "repo": "cv-mkr",
-        "private": true,
-        "releaseType": "release"
-      }
-    ]
+    "publish": [{
+      "provider": "github",
+      "owner": "yesmore",
+      "repo": "cv-mkr",
+      "private": true,
+      "releaseType": "release"
+    }]
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
