@@ -63,6 +63,9 @@ function ResumeContent() {
       {routerParams?.templateId && Number(routerParams?.templateIndex) === 1 && (
         <UseTemplateList.TemplateTwo />
       )}
+      {routerParams?.templateId && Number(routerParams?.templateIndex) === 2 && (
+        <UseTemplateList.TemplateThree />
+      )}
 
       {showFormModal && (
         <>
