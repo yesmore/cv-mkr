@@ -8,8 +8,6 @@
 	<img src="https://img.shields.io/github/license/yesmore/cv-mkr?style=flat-square" alt="GPL"/>
 </div>
 
----
-
 ![Home](https://cdn.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-h.png)
 
 ## 应用简介
