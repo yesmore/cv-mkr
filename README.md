@@ -1,5 +1,5 @@
 <p align="center">
-	<img width='231px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/cv-logo.png' alt='CV MKr'/>
+	<img width='231px' src='https://fastly.jsdelivr.net/gh/yesmore/img/img/cv-logo.png' alt='CV MKr'/>
 </p>
 <p align="center">🎨简历定制 & 一键导出</p>
 <div style='' align="center">
@@ -8,9 +8,7 @@
 	<img src="https://img.shields.io/github/license/yesmore/cv-mkr?style=flat-square" alt="GPL"/>
 </div>
 
----
-
-![Home](https://cdn.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-h.png)
+![Home](https://fastly.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-h.png)
 
 ## 应用简介
 
@@ -50,13 +48,13 @@ Linux 平台: 敬请期待.
 
 > 简历编辑页
 
-![resume](https://cdn.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-resume1.png)
+![resume](https://fastly.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-resume1.png)
 
 （3）点击左侧工具栏项进行信息填写：
 
 > 编辑对话框
 
-![](https://cdn.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-edit1.png)
+![](https://fastly.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-edit1.png)
 
 单击 “已添加” 工具栏项，会弹出对话框填写信息；
 
@@ -66,11 +64,11 @@ Linux 平台: 敬请期待.
 
 > 模板列表页
 
-![Tpl](https://cdn.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-tpl1.png)
+![Tpl](https://fastly.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-tpl1.png)
 
 （5）单击简历编辑页右上角 “导出” 按钮，即可导出为 PDF / 图片 / HTML：
 
-![PDF](https://cdn.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-export1.png)
+![PDF](https://fastly.jsdelivr.net/gh/yesmore/img/cv-mkr/cv-mkr-export1.png)
 
 > 导出文件名默认为 “姓名-电话-岗位.pdf”
 

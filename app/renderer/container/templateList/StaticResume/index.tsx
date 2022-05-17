@@ -9,8 +9,8 @@ import EmptyPng from '@assets/icon/empty.png';
 import Footer from '../Footer';
 import './index.less';
 
-// 1. 合法且存在的简历模版，因为我们存在两个模版封面，但只有一个模版组件
-const VALID_TEMPLATE = [0, 1];
+// 1. 合法且存在的简历模版，因为存在两个模版封面，但只有一个模版组件
+const VALID_TEMPLATE = [0, 1, 2];
 
 function StaticResume() {
   const HEADER_HEIGHT = 0; // 距离头部距离
@@ -30,6 +30,7 @@ function StaticResume() {
           <>
             {selectTemplate.templateIndex === 0 && <TemplateList.TemplateOne />}
             {selectTemplate.templateIndex === 1 && <TemplateList.TemplateTwo />}
+            {selectTemplate.templateIndex === 2 && <TemplateList.TemplateThree />}
             <Footer />
           </>
         )}
